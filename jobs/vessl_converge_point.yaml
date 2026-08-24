@@ -12,7 +12,7 @@ mount:
   /root/workspace/: volume://<your-volume>/
 run: |-
   set -eu
-  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  cd /path/to/this/repo/src
   python -m pip install -q pandas scipy scikit-learn
   python -u rep_converge_point.py
   echo "CONVERGE POINT DONE"
