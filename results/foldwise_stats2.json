@@ -1,0 +1,163 @@
+{
+ "MM-Fi_ep120": {
+  "cnt-v_sum": {
+   "mean_pp": 2.42,
+   "ci_subject": [
+    0.34,
+    4.65
+   ],
+   "ci_two_level": [
+    -0.7,
+    5.69
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "A_sum-v_sum": {
+   "mean_pp": 1.3,
+   "ci_subject": [
+    -1.03,
+    3.57
+   ],
+   "ci_two_level": [
+    -2.34,
+    4.66
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "cnt-occ_ind(reducer, occupancy)": {
+   "mean_pp": 6.87,
+   "ci_subject": [
+    4.71,
+    9.27
+   ],
+   "ci_two_level": [
+    3.71,
+    10.17
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "A_sum-A_mean(reducer, intensity)": {
+   "mean_pp": 4.2,
+   "ci_subject": [
+    1.57,
+    6.91
+   ],
+   "ci_two_level": [
+    -3.64,
+    13.19
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "hist4-cnt(cross-run)": {
+   "mean_pp": 6.48,
+   "ci_subject": [
+    5.09,
+    7.81
+   ],
+   "ci_two_level": [
+    3.6,
+    9.46
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "hist4-A_sum(cross-run)": {
+   "mean_pp": 7.61,
+   "ci_subject": [
+    5.65,
+    9.59
+   ],
+   "ci_two_level": [
+    4.08,
+    11.76
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "hist4-v_sum": {
+   "mean_pp": 8.88,
+   "ci_subject": [
+    7.06,
+    10.75
+   ],
+   "ci_two_level": [
+    6.49,
+    11.48
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "hist4-vshuffled(association)": {
+   "mean_pp": 5.77,
+   "ci_subject": [
+    4.55,
+    7.0
+   ],
+   "ci_two_level": [
+    4.09,
+    7.45
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "vshuffled-v_sum(distribution+width)": {
+   "mean_pp": 3.12,
+   "ci_subject": [
+    0.86,
+    5.36
+   ],
+   "ci_two_level": [
+    0.43,
+    5.77
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "hist2-v_sum(sign_only)": {
+   "mean_pp": 8.26,
+   "ci_subject": [
+    6.57,
+    9.99
+   ],
+   "ci_two_level": [
+    5.8,
+    10.77
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  },
+  "hist8-hist4": {
+   "mean_pp": 1.35,
+   "ci_subject": [
+    0.2,
+    2.51
+   ],
+   "ci_two_level": [
+    -0.09,
+    2.81
+   ],
+   "n_subjects": 40,
+   "n_seeds": 3
+  }
+ },
+ "Infineon_ep120": {
+  "v_sum-occ_ind": {
+   "mean_pp": 7.0,
+   "ci_subject": [
+    4.35,
+    9.85
+   ],
+   "ci_two_level": [
+    4.0,
+    10.15
+   ],
+   "n_subjects": 12,
+   "n_seeds": 3
+  }
+ },
+ "_note": "fold-wise map reruns 2026-08-19; A_mean/occ_ind cells carry a dagger at ep120 (A_mean 0.701 is below the 0.90 floor: its reducer contrast is context only)"
+}

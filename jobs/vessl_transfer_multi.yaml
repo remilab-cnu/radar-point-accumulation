@@ -1,0 +1,19 @@
+name: srep-gesture-transfer-multi
+description: "Go/no-go #1: multi-source cross-sensor transfer (5 radar sources, 8 directed pairs) — does scalar>distribution inversion replicate beyond n=1?"
+tags: [srep-gesture, novelty-swing, transfer-multi, n1-escape]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+  RERUN_GROUP: "all"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_transfer_multi.py
+  echo "TRANSFER MULTI DONE"

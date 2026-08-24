@@ -1,0 +1,40 @@
+{
+ "purpose": "E6 cancellation-isolating controls + E7 mRI fold-wise (cold review r12)",
+ "protocol": {
+  "lr": 0.001,
+  "batch": 64,
+  "width": 32,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "budget": 240,
+  "nb": 32,
+  "smoke": false,
+  "ranges": "fit_ranges on training subjects per fold"
+ },
+ "results": {
+  "mRI|v_sum|ep240": {
+   "acc": 89.02,
+   "std": 7.44,
+   "min_train_acc": 0.7686,
+   "mean_train_acc": 0.9846,
+   "underfit": true
+  },
+  "mRI|v_hist4|ep240": {
+   "acc": 88.33,
+   "std": 12.91,
+   "min_train_acc": 0.5338,
+   "mean_train_acc": 0.9671,
+   "underfit": true
+  },
+  "mRI|v_possum_negsum|ep240": {
+   "acc": 89.15,
+   "std": 6.3,
+   "min_train_acc": 0.7681,
+   "mean_train_acc": 0.9845,
+   "underfit": true
+  }
+ }
+}

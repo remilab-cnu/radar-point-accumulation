@@ -1,0 +1,33 @@
+{
+ "SmallCNN_velocity_map": {
+  "params": 24133,
+  "latency_ms_cpu_b1": 0.287,
+  "macs_thop": 3650944
+ },
+ "DeepSets": {
+  "params": 42309,
+  "latency_ms_cpu_b1": 0.238,
+  "macs_thop": 3326592
+ },
+ "PointLSTM": {
+  "params": 175365,
+  "latency_ms_cpu_b1": 27.963,
+  "macs_thop": 517419648
+ },
+ "PointNetPP": {
+  "params": 413189,
+  "latency_ms_cpu_b1": 15.093,
+  "macs_thop": 201843968
+ },
+ "DGCNNTemporal": {
+  "params": 121861,
+  "latency_ms_cpu_b1": 13.568,
+  "macs_thop": 136938752
+ },
+ "MGesNetCPDP": {
+  "params": 57061
+ },
+ "XiaXuNet": {
+  "params": 17155653
+ }
+}

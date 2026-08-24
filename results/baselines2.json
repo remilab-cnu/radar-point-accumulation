@@ -1,0 +1,365 @@
+{
+ "manifest": {
+  "infineon_pkl_md5": "7d60af89e571178e5e1d04147d78364b",
+  "n_instances": {
+   "mHomeGes": 22108,
+   "Infineon": 2400,
+   "MM-Fi": 1073
+  }
+ },
+ "datasets": {
+  "mHomeGes": {
+   "n_instances": 22108,
+   "n_cls": 10,
+   "chance": 0.1,
+   "folds": [
+    [
+     "802",
+     "805",
+     "811",
+     "816",
+     "820"
+    ],
+    [
+     "814",
+     "818",
+     "823",
+     "824",
+     "825"
+    ],
+    [
+     "801",
+     "806",
+     "808",
+     "810",
+     "813"
+    ],
+    [
+     "804",
+     "807",
+     "809",
+     "819",
+     "821"
+    ],
+    [
+     "800",
+     "803",
+     "812",
+     "815",
+     "822"
+    ]
+   ],
+   "test_N": [
+    4287,
+    4051,
+    6717,
+    2977,
+    4076
+   ]
+  },
+  "Infineon": {
+   "n_instances": 2400,
+   "n_cls": 5,
+   "chance": 0.2,
+   "folds": [
+    [
+     "u2",
+     "u4",
+     "u9"
+    ],
+    [
+     "u11",
+     "u6",
+     "u8"
+    ],
+    [
+     "u10",
+     "u5",
+     "u7"
+    ],
+    [
+     "u1",
+     "u12",
+     "u3"
+    ]
+   ],
+   "test_N": [
+    600,
+    600,
+    600,
+    600
+   ]
+  },
+  "MM-Fi": {
+   "n_instances": 1073,
+   "n_cls": 27,
+   "chance": 0.037,
+   "folds": [
+    [
+     "S05",
+     "S10",
+     "S15",
+     "S20",
+     "S25",
+     "S30",
+     "S35",
+     "S40"
+    ]
+   ],
+   "test_N": [
+    216
+   ]
+  }
+ },
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "optimizer": "adam",
+  "lrs": [
+   0.0003,
+   0.001
+  ],
+  "grad_clip": 5.0,
+  "aug": "none",
+  "input": "published-form frame sequence: build_frame_tensors (x,y,z,v,A), T=40 bins, K=24 pts/bin, masked",
+  "lr_policy": "protocol pair {3e-4,1e-3} both reported (round-1 mHomeGes collapse at 1e-3 keeps LR sensitivity live); published default 1e-4 arm pending (pointlstm.yaml)",
+  "models": {
+   "PointLSTM": "phi MLP[in,64,128] -> PointLSTM cell (k=4 masked kNN t->t-1, shared gates on [feat_i; rel_xyz; h_j], neighbor max-pool of h and c, hidden 128) -> masked spatio-temporal max+mean pool -> FC"
+  },
+  "deviations": [
+   "compact backbone: pointwise MLP + 1 PointLSTM layer (hidden 128) + masked ST max+mean pool; no Motion-net stages/MotionBlocks/point downsampling (published: 4-stage, hidden 256)",
+   "grouping k=4 of <=24 pts/bin (published topk=16 of 128/frame); direct grouping only (offsets=False)",
+   "3-D xyz offsets (published 4-D x,y,z,d positions)",
+   "point features [x,y,z,v,A] common columns (published xyz(d) only)",
+   "masked kNN + pair-validity has-guard pooling; empty bins carry state from last non-empty bin (published dense 32x128, no padding)",
+   "whole-instance 384-pt common input not run: structurally inapplicable to a per-frame recurrent point model",
+   "published-default lr 1e-4 arm not yet run"
+  ]
+ },
+ "results": {
+  "mHomeGes|PointLSTM|frames(xyzvA)|lr3e-4|ep30": {
+   "mean": 80.42429328060905,
+   "std": 2.036088891617548,
+   "accs": [
+    79.96,
+    80.22,
+    80.13,
+    80.77,
+    81.39,
+    79.54,
+    77.68,
+    77.95,
+    75.76,
+    82.23,
+    80.95,
+    84.25,
+    82.19,
+    81.31,
+    82.04
+   ],
+   "min_train_acc": 93.24,
+   "underfit": true
+  },
+  "mHomeGes|PointLSTM|frames(xyzvA)|lr3e-4|ep40": {
+   "mean": 81.8330586726051,
+   "std": 2.495036392003484,
+   "accs": [
+    81.34,
+    81.46,
+    82.18,
+    80.33,
+    81.34,
+    80.38,
+    81.11,
+    76.98,
+    77.21,
+    85.56,
+    85.12,
+    85.59,
+    82.78,
+    83.24,
+    82.9
+   ],
+   "min_train_acc": 94.59,
+   "underfit": true
+  },
+  "mHomeGes|PointLSTM|frames(xyzvA)|lr1e-3|ep30": {
+   "mean": 83.54034688465592,
+   "std": 2.292248163604126,
+   "accs": [
+    84.16,
+    83.23,
+    85.12,
+    82.57,
+    82.37,
+    83.04,
+    82.13,
+    80.78,
+    80.57,
+    88.71,
+    85.35,
+    87.97,
+    83.12,
+    82.24,
+    81.72
+   ],
+   "min_train_acc": 96.18,
+   "underfit": false
+  },
+  "mHomeGes|PointLSTM|frames(xyzvA)|lr1e-3|ep40": {
+   "mean": 83.41889212897223,
+   "std": 2.3816642792983176,
+   "accs": [
+    82.86,
+    83.81,
+    84.67,
+    83.07,
+    83.39,
+    83.41,
+    79.43,
+    82.21,
+    80.07,
+    87.71,
+    88.24,
+    86.06,
+    82.51,
+    82.36,
+    81.5
+   ],
+   "min_train_acc": 97.24,
+   "underfit": false
+  },
+  "Infineon|PointLSTM|frames(xyzvA)|lr3e-4|ep30": {
+   "mean": 93.76388888888889,
+   "std": 5.537104777858881,
+   "accs": [
+    96.0,
+    97.33,
+    98.83,
+    97.33,
+    95.67,
+    98.17,
+    96.17,
+    97.5,
+    94.0,
+    82.33,
+    83.17,
+    88.67
+   ],
+   "min_train_acc": 97.61,
+   "underfit": false
+  },
+  "Infineon|PointLSTM|frames(xyzvA)|lr3e-4|ep40": {
+   "mean": 93.48611111111111,
+   "std": 5.4570962692038,
+   "accs": [
+    97.0,
+    96.83,
+    97.5,
+    96.17,
+    95.5,
+    96.0,
+    94.67,
+    98.17,
+    96.67,
+    82.0,
+    83.17,
+    88.17
+   ],
+   "min_train_acc": 98.89,
+   "underfit": false
+  },
+  "Infineon|PointLSTM|frames(xyzvA)|lr1e-3|ep30": {
+   "mean": 94.63888888888889,
+   "std": 3.90324730271768,
+   "accs": [
+    97.5,
+    99.0,
+    98.17,
+    94.33,
+    96.0,
+    93.5,
+    97.83,
+    96.17,
+    97.83,
+    88.67,
+    87.33,
+    89.33
+   ],
+   "min_train_acc": 98.89,
+   "underfit": false
+  },
+  "Infineon|PointLSTM|frames(xyzvA)|lr1e-3|ep40": {
+   "mean": 94.3611111111111,
+   "std": 5.425349166666319,
+   "accs": [
+    98.0,
+    97.83,
+    98.0,
+    97.17,
+    93.5,
+    96.0,
+    98.17,
+    97.67,
+    98.17,
+    88.17,
+    80.17,
+    89.5
+   ],
+   "min_train_acc": 96.89,
+   "underfit": false
+  },
+  "MM-Fi|PointLSTM|frames(xyzvA)|lr3e-4|ep30": {
+   "mean": 41.97530864197531,
+   "std": 0.7868857274062949,
+   "accs": [
+    41.67,
+    43.06,
+    41.2
+   ],
+   "min_train_acc": 48.31,
+   "underfit": true
+  },
+  "MM-Fi|PointLSTM|frames(xyzvA)|lr3e-4|ep40": {
+   "mean": 50.46296296296296,
+   "std": 2.2993309298998983,
+   "accs": [
+    52.31,
+    51.85,
+    47.22
+   ],
+   "min_train_acc": 54.38,
+   "underfit": true
+  },
+  "MM-Fi|PointLSTM|frames(xyzvA)|lr1e-3|ep30": {
+   "mean": 66.820987654321,
+   "std": 2.430249343830803,
+   "accs": [
+    63.43,
+    68.98,
+    68.06
+   ],
+   "min_train_acc": 74.33,
+   "underfit": true
+  },
+  "MM-Fi|PointLSTM|frames(xyzvA)|lr1e-3|ep40": {
+   "mean": 67.90123456790124,
+   "std": 2.0819039449432166,
+   "accs": [
+    65.28,
+    68.06,
+    70.37
+   ],
+   "min_train_acc": 80.98,
+   "underfit": true
+  }
+ }
+}

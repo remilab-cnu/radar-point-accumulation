@@ -1,0 +1,19 @@
+name: srep-gesture-foldwise-ext300
+description: "Cold-review r12 (2026-08-24): foldwise_ext300"
+tags: [srep-gesture, tim-revision, major-revision-2026-08]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /path/to/this/repo/src
+  python -m pip install -q pandas scipy scikit-learn
+  SMOKE=1 python -u rep_foldwise_ext300.py
+  python -u rep_foldwise_ext300.py
+  echo "FOLDWISE_LADDER DONE"

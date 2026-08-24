@@ -1,0 +1,17 @@
+{
+ "n_recordings": 1800,
+ "W": 24,
+ "S": 8,
+ "epochs": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "trimmed_clip_acc": 64.81,
+ "continuous_frame_acc": 76.4,
+ "gesture_detection_rate": 82.63,
+ "false_pos_per_min": 47.86,
+ "collapse_trimmed_minus_detection": -17.82
+}

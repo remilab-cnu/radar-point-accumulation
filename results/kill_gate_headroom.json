@@ -1,0 +1,30 @@
+{
+ "n_recordings": 2400,
+ "epochs": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "results": {
+  "cfar": {
+   "acc": 93.31,
+   "std": 4.42,
+   "pts_per_inst": 370.1
+  },
+  "energy": {
+   "acc": 94.13,
+   "std": 3.57,
+   "pts_per_inst": 370.1
+  },
+  "oracle": {
+   "acc": 95.25,
+   "std": 2.39,
+   "pts_per_inst": 370.1
+  }
+ },
+ "headroom_oracle_minus_cfar": 1.9399999999999977,
+ "headroom_energy_minus_cfar": 0.8199999999999932,
+ "note": "oracle uses whole-set relevance = optimistic upper bound (leaky on purpose)"
+}

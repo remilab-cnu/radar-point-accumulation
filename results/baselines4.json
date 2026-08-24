@@ -1,0 +1,170 @@
+{
+ "manifest": {
+  "infineon_pkl_md5": "7d60af89e571178e5e1d04147d78364b",
+  "xiaxu_maps_md5": "e9e321d3bdd6ab9a920efb0430cb98c5",
+  "n_instances": {
+   "Infineon": 2400
+  },
+  "replay_check": {
+   "checked": true,
+   "n_frozen": 2400,
+   "n_replayed": 2400,
+   "labels_users_match": true,
+   "det_counts_match": true
+  }
+ },
+ "datasets": {
+  "Infineon": {
+   "n_instances": 2400,
+   "n_cls": 5,
+   "chance": 0.2,
+   "folds": [
+    [
+     "u2",
+     "u4",
+     "u9"
+    ],
+    [
+     "u11",
+     "u6",
+     "u8"
+    ],
+    [
+     "u10",
+     "u5",
+     "u7"
+    ],
+    [
+     "u1",
+     "u12",
+     "u3"
+    ]
+   ],
+   "test_N": [
+    600,
+    600,
+    600,
+    600
+   ]
+  }
+ },
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "optimizer": "adam",
+  "lrs": [
+   0.0003,
+   0.001
+  ],
+  "grad_clip": null,
+  "aug": "none",
+  "input": "Xia&Xu 2022 Sec. III raw-spectrum features RTA+DTA+ATA+ETA (4ch 64x64), spatial-position-aligned (Sec. V-A), per-map max-norm; built from RAW ADC cubes, no detected point clouds",
+  "lr_policy": "published default 1e-3 (Adam, constant) is inside the protocol pair {3e-4, 1e-3}; both reported",
+  "models": {
+   "XiaXu2022-MyNetV2": "3x [conv3x3(s1,p1)-BN-ReLU-maxpool2] depths 64/128/256 -> FC1024-ReLU-dropout0.5 -> FC5 (17,155,653 params)"
+  },
+  "scope": "Infineon ONLY: the faithful row requires raw radar cubes; mHomeGes distributes detected point clouds only (cite-and-position, no runnable row)",
+  "deviations": [
+   "60GHz 3RX hardware vs their sensor: Infineon BGT60TR13C 60.5GHz/4GHz BW, 1TX x 3RX L-array (azimuth pair rx(0,2), elevation pair rx(1,2), lambda/2), 32 chirps x 64 samples/frame, ~33fps, range <=1.2m vs their Calterah 60.5-64GHz TDM-MIMO 4TX x 4RX 2D virtual array (8 azimuth / 3 elevation virtual channels), 256 chirps x 256 samples, 20fps, 6.4m range. ATA/ETA are therefore 2-element interferometric beam patterns (single coarse main lobe) \u2014 a hardware limitation, not a pipeline change",
+   "incoherent superposition (Eq. 8) averages Nc=3 physical RX channels (their Nc=16 virtual channels)",
+   "2D CA-CFAR on the 32x32 RD map uses the chain-validated train=9/guard=3/alpha=2.5 (their train 9 / guard 15 / Pfa 0.01 assume 256x256 maps and do not fit a 32-bin axis); frames with zero detections fall back to the global-peak RD cell as the single target point (the paper leaves weak frames 'incorrectly estimated', Sec. III)",
+   "spatial-position-alignment clustering: 8-connected components on a >15%-of-max binarization, largest component = target cluster (their point-clustering algorithm is unspecified); vertical centering applied to RTA and ATA only (their stated position-varying features are RTA/ATA/XTA/YTA; XTA/YTA do not exist in the raw-spectrum feature set), horizontal (time) centering applied to all channels",
+   "windows are the frozen-protocol gesture windows (active frames +-6, variable ~14-40 frames) instead of their 30-frame/1.5s sliding window; native-resolution maps are rescaled to their 64x64 CNN input exactly as in their preprocessing (their non-gesture-frame filtering is played by the frozen gesture windowing)",
+   "channel set RTA+DTA+ATA+ETA (their Sec. III spectrum-representation features); their best variant XTA+YTA+ZTA is built from detected point clouds and is excluded by design from this raw-spectrum row",
+   "training uses the frozen equal-HPO budget (ep {30,40} x lr {1e-3,3e-4} x seeds {0,1,2}, batch 64, Adam, no grad clip \u2014 matching cnn.train_eval used for our rows); their published setting (Adam lr 1e-3 constant, batch 64) is covered at lr 1e-3 but their 100-epoch budget is capped at the protocol 30/40",
+   "CNN mirrors MyNetV2 in every documented dimension (3x conv3x3(s1)-BN-ReLU-maxpool2x2, depths 64/128/256, FC1024, dropout 0.5); unspecified details chosen as: padding=1 ('same'), ReLU after FC1024, BatchNorm without running stats (repo baseline convention)",
+   "per-map max-normalization before the CNN (their amplitude normalization is unspecified; only BN inside the network is documented)",
+   "frozen-manifest replay executes the detection chain solely to replay the >=8-detections inclusion filter of the frozen instance set; no detected points enter the representation"
+  ]
+ },
+ "results": {
+  "Infineon|XiaXu2022-MyNetV2|RTA+DTA+ATA+ETA|lr3e-4|ep30": {
+   "mean": 93.59722222222221,
+   "std": 2.1735556435947236,
+   "accs": [
+    97.83,
+    97.17,
+    96.33,
+    92.5,
+    92.5,
+    92.33,
+    91.5,
+    91.67,
+    91.5,
+    92.83,
+    92.67,
+    94.33
+   ],
+   "min_train_acc": 99.94,
+   "underfit": false
+  },
+  "Infineon|XiaXu2022-MyNetV2|RTA+DTA+ATA+ETA|lr3e-4|ep40": {
+   "mean": 92.51388888888887,
+   "std": 3.5475985182815695,
+   "accs": [
+    97.5,
+    94.5,
+    97.17,
+    92.5,
+    92.67,
+    91.83,
+    89.0,
+    83.5,
+    91.67,
+    94.33,
+    91.67,
+    93.83
+   ],
+   "min_train_acc": 96.5,
+   "underfit": false
+  },
+  "Infineon|XiaXu2022-MyNetV2|RTA+DTA+ATA+ETA|lr1e-3|ep30": {
+   "mean": 91.91666666666666,
+   "std": 2.618046345400837,
+   "accs": [
+    97.33,
+    94.0,
+    96.33,
+    93.0,
+    91.17,
+    90.5,
+    90.33,
+    91.17,
+    90.67,
+    90.83,
+    89.33,
+    88.33
+   ],
+   "min_train_acc": 99.33,
+   "underfit": false
+  },
+  "Infineon|XiaXu2022-MyNetV2|RTA+DTA+ATA+ETA|lr1e-3|ep40": {
+   "mean": 92.16666666666667,
+   "std": 2.264868567848833,
+   "accs": [
+    97.5,
+    94.0,
+    92.83,
+    91.83,
+    91.5,
+    91.67,
+    88.5,
+    91.0,
+    90.33,
+    94.83,
+    91.5,
+    90.5
+   ],
+   "min_train_acc": 97.72,
+   "underfit": false
+  }
+ }
+}

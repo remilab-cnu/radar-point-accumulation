@@ -1,0 +1,173 @@
+{
+ "manifest": {
+  "infineon_pkl_md5": "7d60af89e571178e5e1d04147d78364b"
+ },
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "lrs": [
+   "1e-3",
+   "3e-4"
+  ],
+  "aug": "none",
+  "deviations": [
+   "BN track_running_stats=False (batch-stats at eval; fixes running-stats corruption, see mhfix_diag2)",
+   "masked FPS/ball-query/kNN (padding excluded)",
+   "compact depths vs published"
+  ]
+ },
+ "results": {
+  "mHomeGes|PointNetPP|lr1e-3|ep30": {
+   "mean": 81.09385740207568,
+   "std": 3.8742711699288233,
+   "min_train_acc": 0.8718944099378882,
+   "underfit": true
+  },
+  "mHomeGes|PointNetPP|lr1e-3|ep40": {
+   "mean": 81.45796195104091,
+   "std": 3.683384437953493,
+   "min_train_acc": 0.889480865440842,
+   "underfit": true
+  },
+  "mHomeGes|PointNetPP|lr3e-4|ep30": {
+   "mean": 79.23159700489822,
+   "std": 4.79956411113389,
+   "min_train_acc": 0.8734974985381067,
+   "underfit": true
+  },
+  "mHomeGes|PointNetPP|lr3e-4|ep40": {
+   "mean": 80.07086516050761,
+   "std": 4.449665270137526,
+   "min_train_acc": 0.8780456110714053,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|lr1e-3|ep30": {
+   "mean": 72.18338183623662,
+   "std": 6.804101507362759,
+   "min_train_acc": 0.789357416672081,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|lr1e-3|ep40": {
+   "mean": 74.70003181945138,
+   "std": 6.295153713720493,
+   "min_train_acc": 0.8150217659671236,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|lr3e-4|ep30": {
+   "mean": 68.5186014527701,
+   "std": 8.857629509408675,
+   "min_train_acc": 0.76227066018504,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|lr3e-4|ep40": {
+   "mean": 70.41368677798211,
+   "std": 7.700037425639892,
+   "min_train_acc": 0.7730491845883958,
+   "underfit": true
+  },
+  "Infineon|PointNetPP|lr1e-3|ep30": {
+   "mean": 95.8611111111111,
+   "std": 2.0602424045320746,
+   "min_train_acc": 0.9694444444444444,
+   "underfit": false
+  },
+  "Infineon|PointNetPP|lr1e-3|ep40": {
+   "mean": 96.36111111111111,
+   "std": 1.3295664381971484,
+   "min_train_acc": 0.9933333333333333,
+   "underfit": false
+  },
+  "Infineon|PointNetPP|lr3e-4|ep30": {
+   "mean": 95.95833333333336,
+   "std": 1.7214940216761332,
+   "min_train_acc": 0.9894444444444445,
+   "underfit": false
+  },
+  "Infineon|PointNetPP|lr3e-4|ep40": {
+   "mean": 96.5,
+   "std": 1.2546210878484692,
+   "min_train_acc": 0.99,
+   "underfit": false
+  },
+  "Infineon|DGCNNTemporal|lr1e-3|ep30": {
+   "mean": 95.94444444444444,
+   "std": 1.9404721329525536,
+   "min_train_acc": 0.9966666666666667,
+   "underfit": false
+  },
+  "Infineon|DGCNNTemporal|lr1e-3|ep40": {
+   "mean": 97.04166666666669,
+   "std": 1.5929895607758204,
+   "min_train_acc": 0.98,
+   "underfit": false
+  },
+  "Infineon|DGCNNTemporal|lr3e-4|ep30": {
+   "mean": 96.31944444444444,
+   "std": 1.6079350879042282,
+   "min_train_acc": 0.9983333333333333,
+   "underfit": false
+  },
+  "Infineon|DGCNNTemporal|lr3e-4|ep40": {
+   "mean": 96.70833333333331,
+   "std": 1.4971036852684743,
+   "min_train_acc": 0.9994444444444445,
+   "underfit": false
+  },
+  "MM-Fi|PointNetPP|lr1e-3|ep30": {
+   "mean": 74.69135802469134,
+   "std": 2.51689914047841,
+   "min_train_acc": 0.9953325554259043,
+   "underfit": false
+  },
+  "MM-Fi|PointNetPP|lr1e-3|ep40": {
+   "mean": 79.01234567901234,
+   "std": 1.9397847361074934,
+   "min_train_acc": 0.9988331388564761,
+   "underfit": false
+  },
+  "MM-Fi|PointNetPP|lr3e-4|ep30": {
+   "mean": 65.12345679012346,
+   "std": 2.8870813169552005,
+   "min_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|PointNetPP|lr3e-4|ep40": {
+   "mean": 65.12345679012346,
+   "std": 1.902596914496597,
+   "min_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|DGCNNTemporal|lr1e-3|ep30": {
+   "mean": 71.91358024691358,
+   "std": 1.154832526782081,
+   "min_train_acc": 0.8996499416569428,
+   "underfit": true
+  },
+  "MM-Fi|DGCNNTemporal|lr1e-3|ep40": {
+   "mean": 75.30864197530863,
+   "std": 0.5774162633910429,
+   "min_train_acc": 0.9381563593932322,
+   "underfit": true
+  },
+  "MM-Fi|DGCNNTemporal|lr3e-4|ep30": {
+   "mean": 60.64814814814814,
+   "std": 1.512030705421717,
+   "min_train_acc": 0.7782963827304551,
+   "underfit": true
+  },
+  "MM-Fi|DGCNNTemporal|lr3e-4|ep40": {
+   "mean": 65.89506172839505,
+   "std": 1.9397847361074934,
+   "min_train_acc": 0.8483080513418904,
+   "underfit": true
+  }
+ }
+}

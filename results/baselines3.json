@@ -1,0 +1,403 @@
+{
+ "manifest": {
+  "infineon_pkl_md5": "7d60af89e571178e5e1d04147d78364b",
+  "n_instances": {
+   "mHomeGes": 22108,
+   "Infineon": 2400,
+   "MM-Fi": 1073
+  }
+ },
+ "datasets": {
+  "mHomeGes": {
+   "n_instances": 22108,
+   "n_cls": 10,
+   "chance": 0.1,
+   "folds": [
+    [
+     "802",
+     "805",
+     "811",
+     "816",
+     "820"
+    ],
+    [
+     "814",
+     "818",
+     "823",
+     "824",
+     "825"
+    ],
+    [
+     "801",
+     "806",
+     "808",
+     "810",
+     "813"
+    ],
+    [
+     "804",
+     "807",
+     "809",
+     "819",
+     "821"
+    ],
+    [
+     "800",
+     "803",
+     "812",
+     "815",
+     "822"
+    ]
+   ],
+   "test_N": [
+    4287,
+    4051,
+    6717,
+    2977,
+    4076
+   ],
+   "cpdp_ranges": {
+    "r": [
+     0.14008864719914083,
+     3.491673827984007
+    ],
+    "d": [
+     -2.6166,
+     2.6166
+    ]
+   },
+   "n_windows": 16,
+   "window_mask_fill": 0.087
+  },
+  "Infineon": {
+   "n_instances": 2400,
+   "n_cls": 5,
+   "chance": 0.2,
+   "folds": [
+    [
+     "u2",
+     "u4",
+     "u9"
+    ],
+    [
+     "u11",
+     "u6",
+     "u8"
+    ],
+    [
+     "u10",
+     "u5",
+     "u7"
+    ],
+    [
+     "u1",
+     "u12",
+     "u3"
+    ]
+   ],
+   "test_N": [
+    600,
+    600,
+    600,
+    600
+   ],
+   "cpdp_ranges": {
+    "r": [
+     -0.009368514312500006,
+     1.0211680600625
+    ],
+    "d": [
+     -2.7099008341942157,
+     2.7099008341942157
+    ]
+   },
+   "n_windows": 1,
+   "window_mask_fill": 1.0
+  },
+  "MM-Fi": {
+   "n_instances": 1073,
+   "n_cls": 27,
+   "chance": 0.037,
+   "folds": [
+    [
+     "S05",
+     "S10",
+     "S15",
+     "S20",
+     "S25",
+     "S30",
+     "S35",
+     "S40"
+    ]
+   ],
+   "test_N": [
+    216
+   ],
+   "cpdp_ranges": {
+    "r": [
+     2.436929881917978,
+     5.6861690352981125
+    ],
+    "d": [
+     -2.538265872001648,
+     2.538265872001648
+    ]
+   },
+   "n_windows": 16,
+   "window_mask_fill": 0.8857
+  }
+ },
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "optimizer": "adam",
+  "lrs": [
+   0.0003,
+   0.001
+  ],
+  "grad_clip": 5.0,
+  "aug": "none",
+  "input": "published-form CPDP: per 30-frame window (stride 15, max 16 windows/instance, adaptive stride beyond), 32x32 range x Doppler map of summed |intensity|, per-window max-norm, percentile-fit extents; window-validity mask",
+  "lr_policy": "protocol pair {3e-4,1e-3} both reported; the paper's training hyperparameters are not public (ACM-closed), so no published-default arm exists",
+  "models": {
+   "CPDP-mGesNet": "shared shallow CNN per window: 3x[conv3x3-BN-ReLU-maxpool2] (16/32/64) -> adaptive-avg-pool 2x2 -> FC128 -> FC n_cls; masked mean of per-window logits (voting reduction) (57,706 params @ 10 cls)"
+  },
+  "deviations": [
+   "CPDP rebuilt from the distributed point clouds: r = ||(x,y,z)|| per detected point; the paper compresses intensity onto the radar's native range/Doppler axes upstream of point detection (exact axis geometry not public)",
+   "profile dims 32x32 (range x Doppler), percentile-fit extents (r: 1-99% +5% pad; Doppler: symmetric 99% of |v| +5% pad, 0 centered); published bin counts/extents are in no public material",
+   "cell value = sum of |intensity| of the window's points in the (r,d) cell (documented), then per-window max-norm (project map convention; published normalization undocumented); no clutter removal beyond the datasets' own detection front-end (paper: 'denoised' RD upstream + UDAN user discovery, inapplicable to single-user pre-segmented instances)",
+   "window = 30 frames, stride 15, in frame-number space over PRE-SEGMENTED instances (paper: 30-frame sliding window on the continuous 10-fps stream); instances shorter than one window -> a single whole-instance window; instances needing > max_w windows use a proportionally larger stride (full coverage kept); frame-count windows mean the real-time duration differs where the frame period differs from mHomeGes's 100 ms (Infineon)",
+   "instance decision = masked MEAN of per-window logits; the published HMM-based voting mechanism (HMM-VM) segments continuous streams and is inapplicable to pre-segmented instances",
+   "one model per fold across all anchor distances/subjects (paper trains a separate mGesNet per anchor position); required by the frozen subject-disjoint protocol",
+   "mGesNet layer spec is not public ('novel shallow neural network' / 'lightweight CNN' is all the public record states): implemented as 3x[conv3x3-BN-ReLU-maxpool2] widths 16/32/64 -> adaptive-avg-pool 2x2 -> FC128 -> FC n_cls (~58k params); BN track_running_stats=False (round-1 corruption fix)",
+   "point-less windows are masked invalid; all-windows-empty instance -> zero logits via has-guard (padded window slots never enter the network)",
+   "published training hyperparameters are not public -> frozen equal-HPO budgets only; no published-default LR arm is possible"
+  ]
+ },
+ "results": {
+  "mHomeGes|CPDP-mGesNet|cpdp(r,d;int-sum)|lr3e-4|ep30": {
+   "mean": 62.231410365384164,
+   "std": 4.664401225857431,
+   "accs": [
+    54.35,
+    56.64,
+    54.7,
+    64.82,
+    63.74,
+    62.73,
+    62.53,
+    63.15,
+    64.39,
+    58.05,
+    61.77,
+    59.69,
+    68.42,
+    68.79,
+    69.7
+   ],
+   "min_train_acc": 88.6,
+   "underfit": true
+  },
+  "mHomeGes|CPDP-mGesNet|cpdp(r,d;int-sum)|lr3e-4|ep40": {
+   "mean": 61.88663579115838,
+   "std": 4.890949272540505,
+   "accs": [
+    52.13,
+    53.84,
+    55.49,
+    64.35,
+    62.23,
+    63.86,
+    61.1,
+    63.06,
+    64.4,
+    60.4,
+    61.34,
+    60.4,
+    68.65,
+    67.79,
+    69.26
+   ],
+   "min_train_acc": 91.23,
+   "underfit": true
+  },
+  "mHomeGes|CPDP-mGesNet|cpdp(r,d;int-sum)|lr1e-3|ep30": {
+   "mean": 63.174205003542774,
+   "std": 4.248882613948949,
+   "accs": [
+    56.8,
+    56.99,
+    55.94,
+    65.02,
+    63.34,
+    62.9,
+    62.11,
+    63.57,
+    62.9,
+    63.76,
+    63.08,
+    62.01,
+    69.11,
+    71.32,
+    68.77
+   ],
+   "min_train_acc": 90.92,
+   "underfit": true
+  },
+  "mHomeGes|CPDP-mGesNet|cpdp(r,d;int-sum)|lr1e-3|ep40": {
+   "mean": 63.30013951561324,
+   "std": 4.241699969031991,
+   "accs": [
+    55.87,
+    56.8,
+    57.15,
+    64.16,
+    64.53,
+    65.22,
+    62.84,
+    62.78,
+    63.48,
+    64.49,
+    61.1,
+    62.28,
+    69.23,
+    70.63,
+    68.94
+   ],
+   "min_train_acc": 93.76,
+   "underfit": true
+  },
+  "Infineon|CPDP-mGesNet|cpdp(r,d;int-sum)|lr3e-4|ep30": {
+   "mean": 63.8611111111111,
+   "std": 8.064506521300528,
+   "accs": [
+    68.0,
+    71.5,
+    69.5,
+    63.0,
+    63.17,
+    65.67,
+    70.83,
+    69.5,
+    72.5,
+    51.17,
+    48.67,
+    52.83
+   ],
+   "min_train_acc": 99.78,
+   "underfit": false
+  },
+  "Infineon|CPDP-mGesNet|cpdp(r,d;int-sum)|lr3e-4|ep40": {
+   "mean": 64.13888888888889,
+   "std": 7.902130904984183,
+   "accs": [
+    69.17,
+    71.83,
+    70.5,
+    59.67,
+    63.33,
+    66.67,
+    72.0,
+    67.0,
+    73.33,
+    52.5,
+    50.33,
+    53.33
+   ],
+   "min_train_acc": 99.89,
+   "underfit": false
+  },
+  "Infineon|CPDP-mGesNet|cpdp(r,d;int-sum)|lr1e-3|ep30": {
+   "mean": 64.72222222222221,
+   "std": 7.79016870132231,
+   "accs": [
+    71.0,
+    70.83,
+    69.33,
+    63.83,
+    61.83,
+    66.17,
+    71.5,
+    70.33,
+    74.33,
+    52.0,
+    52.17,
+    53.33
+   ],
+   "min_train_acc": 99.89,
+   "underfit": false
+  },
+  "Infineon|CPDP-mGesNet|cpdp(r,d;int-sum)|lr1e-3|ep40": {
+   "mean": 65.91666666666667,
+   "std": 7.25446861009232,
+   "accs": [
+    70.33,
+    70.0,
+    72.5,
+    66.17,
+    59.5,
+    70.0,
+    73.67,
+    70.83,
+    73.0,
+    55.33,
+    53.83,
+    55.83
+   ],
+   "min_train_acc": 99.67,
+   "underfit": false
+  },
+  "MM-Fi|CPDP-mGesNet|cpdp(r,d;int-sum)|lr3e-4|ep30": {
+   "mean": 43.364197530864196,
+   "std": 1.7863945837639221,
+   "accs": [
+    41.67,
+    42.59,
+    45.83
+   ],
+   "min_train_acc": 48.07,
+   "underfit": true
+  },
+  "MM-Fi|CPDP-mGesNet|cpdp(r,d;int-sum)|lr3e-4|ep40": {
+   "mean": 45.06172839506173,
+   "std": 2.655038662667476,
+   "accs": [
+    48.15,
+    41.67,
+    45.37
+   ],
+   "min_train_acc": 52.98,
+   "underfit": true
+  },
+  "MM-Fi|CPDP-mGesNet|cpdp(r,d;int-sum)|lr1e-3|ep30": {
+   "mean": 47.53086419753087,
+   "std": 1.3275193313337401,
+   "accs": [
+    49.07,
+    45.83,
+    47.69
+   ],
+   "min_train_acc": 60.09,
+   "underfit": true
+  },
+  "MM-Fi|CPDP-mGesNet|cpdp(r,d;int-sum)|lr1e-3|ep40": {
+   "mean": 50.46296296296296,
+   "std": 1.3629260596184947,
+   "accs": [
+    51.85,
+    48.61,
+    50.93
+   ],
+   "min_train_acc": 68.84,
+   "underfit": true
+  }
+ }
+}

@@ -1,0 +1,461 @@
+{
+ "purpose": "cold-review S1 convergence + P5 shuffle-control (2026-07-17)",
+ "protocol": {
+  "lr": 0.001,
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "uf_gate": 0.95,
+  "aug": "none",
+  "model": "DeepSets",
+  "smoke": false,
+  "budgets": {
+   "mHomeGes": [
+    80,
+    120
+   ],
+   "MM-Fi": [
+    120,
+    240
+   ]
+  },
+  "folds": "kfold(seed=0) == p1_crossparadigm; MM-Fi = S2 single split"
+ },
+ "results": {
+  "mHomeGes|full(xyzvAt)|ep80": {
+   "acc": 82.15,
+   "std": 1.87,
+   "accs": [
+    82.55,
+    84.02,
+    85.14,
+    82.18,
+    80.65,
+    81.36,
+    80.29,
+    78.37,
+    79.34,
+    83.88,
+    82.94,
+    84.85,
+    82.09,
+    82.11,
+    82.56
+   ],
+   "min_train_acc": 0.9439,
+   "mean_train_acc": 0.9543,
+   "underfit": true
+  },
+  "mHomeGes|no-velocity(xyzAt)|ep80": {
+   "acc": 73.31,
+   "std": 4.91,
+   "accs": [
+    75.16,
+    73.1,
+    73.66,
+    77.22,
+    77.81,
+    76.5,
+    63.57,
+    64.12,
+    64.73,
+    79.58,
+    76.62,
+    75.34,
+    74.09,
+    72.87,
+    75.25
+   ],
+   "min_train_acc": 0.9139,
+   "mean_train_acc": 0.9262,
+   "underfit": true
+  },
+  "mHomeGes|v-inshuffle|ep80": {
+   "acc": 77.58,
+   "std": 4.44,
+   "accs": [
+    79.36,
+    78.56,
+    80.52,
+    80.92,
+    81.73,
+    80.84,
+    66.15,
+    70.03,
+    71.8,
+    79.51,
+    77.43,
+    81.39,
+    77.77,
+    79.56,
+    78.19
+   ],
+   "min_train_acc": 0.9301,
+   "mean_train_acc": 0.9394,
+   "underfit": true
+  },
+  "mHomeGes|v-crossshuffle|ep80": {
+   "acc": 73.68,
+   "std": 3.85,
+   "accs": [
+    74.76,
+    73.87,
+    74.97,
+    79.19,
+    77.36,
+    76.43,
+    65.24,
+    69.02,
+    65.91,
+    76.02,
+    76.32,
+    73.93,
+    72.99,
+    74.98,
+    74.24
+   ],
+   "min_train_acc": 0.9211,
+   "mean_train_acc": 0.9287,
+   "underfit": true
+  },
+  "mHomeGes|velocity(xyzvt)|ep80": {
+   "acc": 80.7,
+   "std": 2.48,
+   "accs": [
+    81.13,
+    83.69,
+    82.65,
+    81.31,
+    81.93,
+    81.46,
+    78.0,
+    76.03,
+    77.0,
+    85.66,
+    81.46,
+    82.3,
+    78.7,
+    79.74,
+    79.47
+   ],
+   "min_train_acc": 0.9362,
+   "mean_train_acc": 0.9478,
+   "underfit": true
+  },
+  "mHomeGes|occupancy(xyzt)|ep80": {
+   "acc": 69.95,
+   "std": 6.12,
+   "accs": [
+    71.17,
+    70.31,
+    70.77,
+    76.62,
+    77.36,
+    77.44,
+    59.28,
+    56.77,
+    60.93,
+    72.72,
+    72.69,
+    73.56,
+    71.2,
+    67.89,
+    70.53
+   ],
+   "min_train_acc": 0.9039,
+   "mean_train_acc": 0.9146,
+   "underfit": true
+  },
+  "mHomeGes|full(xyzvAt)|ep120": {
+   "acc": 82.32,
+   "std": 3.14,
+   "accs": [
+    83.51,
+    85.16,
+    86.28,
+    82.97,
+    80.84,
+    83.19,
+    75.85,
+    77.01,
+    78.01,
+    85.56,
+    84.21,
+    86.09,
+    81.16,
+    81.72,
+    83.27
+   ],
+   "min_train_acc": 0.9576,
+   "mean_train_acc": 0.9659,
+   "underfit": false
+  },
+  "mHomeGes|no-velocity(xyzAt)|ep120": {
+   "acc": 74.72,
+   "std": 4.57,
+   "accs": [
+    75.23,
+    75.09,
+    74.2,
+    78.28,
+    77.59,
+    78.82,
+    65.34,
+    66.38,
+    66.92,
+    79.58,
+    78.9,
+    78.13,
+    74.83,
+    75.02,
+    76.55
+   ],
+   "min_train_acc": 0.9322,
+   "mean_train_acc": 0.9411,
+   "underfit": true
+  },
+  "mHomeGes|v-inshuffle|ep120": {
+   "acc": 77.81,
+   "std": 4.63,
+   "accs": [
+    79.61,
+    77.33,
+    80.08,
+    82.79,
+    80.99,
+    82.33,
+    69.33,
+    69.76,
+    68.33,
+    80.08,
+    78.13,
+    81.89,
+    80.05,
+    79.51,
+    76.86
+   ],
+   "min_train_acc": 0.9377,
+   "mean_train_acc": 0.9504,
+   "underfit": true
+  },
+  "mHomeGes|v-crossshuffle|ep120": {
+   "acc": 74.05,
+   "std": 4.18,
+   "accs": [
+    75.62,
+    73.34,
+    72.96,
+    78.72,
+    77.24,
+    77.91,
+    67.29,
+    67.07,
+    64.75,
+    77.73,
+    76.76,
+    76.25,
+    75.05,
+    74.07,
+    75.93
+   ],
+   "min_train_acc": 0.9374,
+   "mean_train_acc": 0.9431,
+   "underfit": true
+  },
+  "mHomeGes|velocity(xyzvt)|ep120": {
+   "acc": 81.06,
+   "std": 2.83,
+   "accs": [
+    82.93,
+    83.11,
+    82.3,
+    82.18,
+    81.24,
+    83.04,
+    77.5,
+    76.18,
+    74.16,
+    82.43,
+    83.04,
+    84.92,
+    81.53,
+    80.05,
+    81.28
+   ],
+   "min_train_acc": 0.948,
+   "mean_train_acc": 0.9575,
+   "underfit": true
+  },
+  "mHomeGes|occupancy(xyzt)|ep120": {
+   "acc": 71.08,
+   "std": 5.92,
+   "accs": [
+    71.45,
+    71.5,
+    70.26,
+    77.96,
+    77.93,
+    77.61,
+    60.53,
+    57.76,
+    63.08,
+    73.93,
+    73.19,
+    75.08,
+    73.48,
+    71.07,
+    71.37
+   ],
+   "min_train_acc": 0.9178,
+   "mean_train_acc": 0.9334,
+   "underfit": true
+  },
+  "MM-Fi|full(xyzvAt)|ep120": {
+   "acc": 65.9,
+   "std": 1.22,
+   "accs": [
+    67.59,
+    65.28,
+    64.81
+   ],
+   "min_train_acc": 0.8366,
+   "mean_train_acc": 0.8724,
+   "underfit": true
+  },
+  "MM-Fi|no-velocity(xyzAt)|ep120": {
+   "acc": 57.41,
+   "std": 0.65,
+   "accs": [
+    57.87,
+    57.87,
+    56.48
+   ],
+   "min_train_acc": 0.7911,
+   "mean_train_acc": 0.7942,
+   "underfit": true
+  },
+  "MM-Fi|v-inshuffle|ep120": {
+   "acc": 64.35,
+   "std": 2.3,
+   "accs": [
+    61.11,
+    66.2,
+    65.74
+   ],
+   "min_train_acc": 0.8238,
+   "mean_train_acc": 0.8475,
+   "underfit": true
+  },
+  "MM-Fi|v-crossshuffle|ep120": {
+   "acc": 57.56,
+   "std": 1.15,
+   "accs": [
+    58.8,
+    56.02,
+    57.87
+   ],
+   "min_train_acc": 0.7491,
+   "mean_train_acc": 0.7911,
+   "underfit": true
+  },
+  "MM-Fi|velocity(xyzvt)|ep120": {
+   "acc": 64.97,
+   "std": 4.36,
+   "accs": [
+    58.8,
+    68.06,
+    68.06
+   ],
+   "min_train_acc": 0.832,
+   "mean_train_acc": 0.8716,
+   "underfit": true
+  },
+  "MM-Fi|occupancy(xyzt)|ep120": {
+   "acc": 58.33,
+   "std": 2.62,
+   "accs": [
+    62.04,
+    56.48,
+    56.48
+   ],
+   "min_train_acc": 0.797,
+   "mean_train_acc": 0.8067,
+   "underfit": true
+  },
+  "MM-Fi|full(xyzvAt)|ep240": {
+   "acc": 72.22,
+   "std": 1.0,
+   "accs": [
+    73.61,
+    71.3,
+    71.76
+   ],
+   "min_train_acc": 0.9732,
+   "mean_train_acc": 0.9817,
+   "underfit": false
+  },
+  "MM-Fi|no-velocity(xyzAt)|ep240": {
+   "acc": 63.89,
+   "std": 1.73,
+   "accs": [
+    65.74,
+    64.35,
+    61.57
+   ],
+   "min_train_acc": 0.923,
+   "mean_train_acc": 0.9358,
+   "underfit": true
+  },
+  "MM-Fi|v-inshuffle|ep240": {
+   "acc": 68.06,
+   "std": 2.85,
+   "accs": [
+    64.35,
+    71.3,
+    68.52
+   ],
+   "min_train_acc": 0.9498,
+   "mean_train_acc": 0.9646,
+   "underfit": true
+  },
+  "MM-Fi|v-crossshuffle|ep240": {
+   "acc": 62.04,
+   "std": 2.48,
+   "accs": [
+    61.57,
+    65.28,
+    59.26
+   ],
+   "min_train_acc": 0.9288,
+   "mean_train_acc": 0.9455,
+   "underfit": true
+  },
+  "MM-Fi|velocity(xyzvt)|ep240": {
+   "acc": 72.38,
+   "std": 2.73,
+   "accs": [
+    68.52,
+    74.54,
+    74.07
+   ],
+   "min_train_acc": 0.9837,
+   "mean_train_acc": 0.9876,
+   "underfit": false
+  },
+  "MM-Fi|occupancy(xyzt)|ep240": {
+   "acc": 64.66,
+   "std": 3.43,
+   "accs": [
+    68.52,
+    60.19,
+    65.28
+   ],
+   "min_train_acc": 0.9288,
+   "mean_train_acc": 0.9436,
+   "underfit": true
+  }
+ }
+}

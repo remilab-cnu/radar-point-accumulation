@@ -1,0 +1,225 @@
+{
+ "protocol": {
+  "width": 32,
+  "src_ep": 120,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "smoke": false,
+  "metric": "target subject-disjoint linear-probe acc %"
+ },
+ "transfer": {
+  "mHomeGes->Infineon|v_sum": {
+   "transfer_acc": 91.06,
+   "transfer_std": 0.45,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|v_hist4": {
+   "transfer_acc": 88.18,
+   "transfer_std": 1.79,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|amplitude": {
+   "transfer_acc": 87.29,
+   "transfer_std": 0.62,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|occupancy": {
+   "transfer_acc": 87.56,
+   "transfer_std": 0.54,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|v_hist4_vshuffled": {
+   "transfer_acc": 86.07,
+   "transfer_std": 1.31,
+   "chance": 20.0
+  },
+  "Infineon->mHomeGes|v_sum": {
+   "transfer_acc": 54.11,
+   "transfer_std": 1.46,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|v_hist4": {
+   "transfer_acc": 45.08,
+   "transfer_std": 1.09,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|amplitude": {
+   "transfer_acc": 37.4,
+   "transfer_std": 0.85,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|occupancy": {
+   "transfer_acc": 40.86,
+   "transfer_std": 1.14,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|v_hist4_vshuffled": {
+   "transfer_acc": 45.34,
+   "transfer_std": 1.37,
+   "chance": 10.0
+  },
+  "MM-Fi->mRI|v_sum": {
+   "transfer_acc": 73.56,
+   "transfer_std": 0.3,
+   "chance": 10.0
+  },
+  "MM-Fi->mRI|v_hist4": {
+   "transfer_acc": 69.88,
+   "transfer_std": 0.63,
+   "chance": 10.0
+  },
+  "MM-Fi->mRI|amplitude": {
+   "transfer_acc": 64.83,
+   "transfer_std": 1.27,
+   "chance": 10.0
+  },
+  "MM-Fi->mRI|occupancy": {
+   "transfer_acc": 72.4,
+   "transfer_std": 1.11,
+   "chance": 10.0
+  },
+  "MM-Fi->mRI|v_hist4_vshuffled": {
+   "transfer_acc": 66.09,
+   "transfer_std": 0.91,
+   "chance": 10.0
+  },
+  "MM-Fi->RadHAR|v_sum": {
+   "transfer_acc": 75.45,
+   "transfer_std": 0.78,
+   "chance": 20.0
+  },
+  "MM-Fi->RadHAR|v_hist4": {
+   "transfer_acc": 77.88,
+   "transfer_std": 1.64,
+   "chance": 20.0
+  },
+  "MM-Fi->RadHAR|amplitude": {
+   "transfer_acc": 63.33,
+   "transfer_std": 0.55,
+   "chance": 20.0
+  },
+  "MM-Fi->RadHAR|occupancy": {
+   "transfer_acc": 68.04,
+   "transfer_std": 0.26,
+   "chance": 20.0
+  },
+  "MM-Fi->RadHAR|v_hist4_vshuffled": {
+   "transfer_acc": 69.32,
+   "transfer_std": 0.97,
+   "chance": 20.0
+  },
+  "mRI->MM-Fi|v_sum": {
+   "transfer_acc": 58.96,
+   "transfer_std": 1.55,
+   "chance": 3.7
+  },
+  "mRI->MM-Fi|v_hist4": {
+   "transfer_acc": 62.16,
+   "transfer_std": 1.76,
+   "chance": 3.7
+  },
+  "mRI->MM-Fi|amplitude": {
+   "transfer_acc": 60.49,
+   "transfer_std": 2.38,
+   "chance": 3.7
+  },
+  "mRI->MM-Fi|occupancy": {
+   "transfer_acc": 68.13,
+   "transfer_std": 0.15,
+   "chance": 3.7
+  },
+  "mRI->MM-Fi|v_hist4_vshuffled": {
+   "transfer_acc": 63.13,
+   "transfer_std": 0.87,
+   "chance": 3.7
+  },
+  "mRI->RadHAR|v_sum": {
+   "transfer_acc": 75.44,
+   "transfer_std": 0.5,
+   "chance": 20.0
+  },
+  "mRI->RadHAR|v_hist4": {
+   "transfer_acc": 74.45,
+   "transfer_std": 0.13,
+   "chance": 20.0
+  },
+  "mRI->RadHAR|amplitude": {
+   "transfer_acc": 65.32,
+   "transfer_std": 2.11,
+   "chance": 20.0
+  },
+  "mRI->RadHAR|occupancy": {
+   "transfer_acc": 67.55,
+   "transfer_std": 0.68,
+   "chance": 20.0
+  },
+  "mRI->RadHAR|v_hist4_vshuffled": {
+   "transfer_acc": 71.27,
+   "transfer_std": 0.67,
+   "chance": 20.0
+  },
+  "RadHAR->MM-Fi|v_sum": {
+   "transfer_acc": 59.81,
+   "transfer_std": 0.23,
+   "chance": 3.7
+  },
+  "RadHAR->MM-Fi|v_hist4": {
+   "transfer_acc": 64.55,
+   "transfer_std": 0.97,
+   "chance": 3.7
+  },
+  "RadHAR->MM-Fi|amplitude": {
+   "transfer_acc": 58.32,
+   "transfer_std": 1.37,
+   "chance": 3.7
+  },
+  "RadHAR->MM-Fi|occupancy": {
+   "transfer_acc": 67.6,
+   "transfer_std": 1.55,
+   "chance": 3.7
+  },
+  "RadHAR->MM-Fi|v_hist4_vshuffled": {
+   "transfer_acc": 57.19,
+   "transfer_std": 1.6,
+   "chance": 3.7
+  },
+  "RadHAR->mRI|v_sum": {
+   "transfer_acc": 71.97,
+   "transfer_std": 0.46,
+   "chance": 10.0
+  },
+  "RadHAR->mRI|v_hist4": {
+   "transfer_acc": 70.31,
+   "transfer_std": 0.8,
+   "chance": 10.0
+  },
+  "RadHAR->mRI|amplitude": {
+   "transfer_acc": 61.58,
+   "transfer_std": 1.78,
+   "chance": 10.0
+  },
+  "RadHAR->mRI|occupancy": {
+   "transfer_acc": 71.24,
+   "transfer_std": 1.28,
+   "chance": 10.0
+  },
+  "RadHAR->mRI|v_hist4_vshuffled": {
+   "transfer_acc": 69.42,
+   "transfer_std": 1.67,
+   "chance": 10.0
+  }
+ },
+ "hist4_minus_sum": {
+  "Infineon->mHomeGes": -9.03,
+  "MM-Fi->RadHAR": 2.43,
+  "MM-Fi->mRI": -3.68,
+  "RadHAR->MM-Fi": 4.74,
+  "RadHAR->mRI": -1.66,
+  "mHomeGes->Infineon": -2.88,
+  "mRI->MM-Fi": 3.2,
+  "mRI->RadHAR": -0.99
+ }
+}

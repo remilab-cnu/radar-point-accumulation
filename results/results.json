@@ -1,0 +1,13 @@
+[
+  {"dataset": "mHomeGes", "task": "gesture", "subjects": 25, "classes": 10,
+   "protocol": "subject 5-fold", "chance": 10.0,
+   "velocity": 67.49, "intensity": 44.60, "occupancy": 54.38,
+   "gap_vel_int": 22.88, "ci_vel_int": [20.8, 24.9],
+   "gap_vel_occ": 13.11, "ci_vel_occ": [8.6, 17.6],
+   "note": "MIT; short-range arm gestures. Velocity beats BOTH intensity and the geometry (occupancy) control; both CIs exclude 0 -> go/no-go gate PASSED. (Provisional: 32-bin SmallCNN, sum-accumulation; faithful re-run pending.)"},
+  {"dataset": "MM-Fi", "task": "HAR (whole-body)", "subjects": 40, "classes": 27,
+   "protocol": "S2 (32/8)", "chance": 3.7,
+   "velocity": 70.37, "intensity": 77.01, "occupancy": 77.47,
+   "gap_vel_int": -6.64, "gap_vel_occ": -7.10,
+   "note": "SCOPE BOUNDARY: whole-body activities. Geometry >= intensity > velocity -> the velocity advantage reverses; consistent with motion-granularity mechanism (pose/spatial dominates whole-body)."}
+]

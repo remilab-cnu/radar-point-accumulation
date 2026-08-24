@@ -1,0 +1,56 @@
+{
+ "n_recordings": 2400,
+ "epochs": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "results": {
+  "cfar": {
+   "map": [
+    93.51,
+    4.72
+   ],
+   "pointnet": [
+    92.46,
+    4.79
+   ],
+   "pts": 370.1
+  },
+  "energy": {
+   "map": [
+    94.61,
+    3.02
+   ],
+   "pointnet": [
+    92.67,
+    4.01
+   ],
+   "pts": 370.1
+  },
+  "oracle": {
+   "map": [
+    95.1,
+    2.63
+   ],
+   "pointnet": [
+    92.82,
+    2.81
+   ],
+   "pts": 370.1
+  }
+ },
+ "headroom": {
+  "map": {
+   "oracle_minus_cfar": 1.59,
+   "energy_minus_cfar": 1.1
+  },
+  "pointnet": {
+   "oracle_minus_cfar": 0.36,
+   "energy_minus_cfar": 0.21
+  }
+ },
+ "note": "oracle uses whole-set relevance = optimistic upper bound (leaky on purpose); pointnet is the honest recognizer (map may under-detect point selection)"
+}

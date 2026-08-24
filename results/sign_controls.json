@@ -1,0 +1,68 @@
+{
+ "purpose": "E6 cancellation-isolating controls + E7 mRI fold-wise (cold review r12)",
+ "protocol": {
+  "lr": 0.001,
+  "batch": 64,
+  "width": 32,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "budget": 120,
+  "nb": 32,
+  "smoke": false,
+  "ranges": "fit_ranges on training subjects per fold"
+ },
+ "results": {
+  "MM-Fi|v_sum|ep120": {
+   "acc": 81.14,
+   "std": 2.0,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4|ep120": {
+   "acc": 89.78,
+   "std": 1.75,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_possum_negsum|ep120": {
+   "acc": 89.53,
+   "std": 2.21,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_abssum|ep120": {
+   "acc": 82.08,
+   "std": 12.6,
+   "min_train_acc": 0.4674,
+   "mean_train_acc": 0.9645,
+   "underfit": true
+  },
+  "MM-Fi|v_sum_2ch|ep120": {
+   "acc": 82.86,
+   "std": 2.39,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "mRI|v_sum|ep120": {
+   "acc": 88.95,
+   "std": 4.69,
+   "min_train_acc": 0.8584,
+   "mean_train_acc": 0.9905,
+   "underfit": true
+  },
+  "mRI|v_hist4|ep120": {
+   "acc": 92.1,
+   "std": 3.22,
+   "min_train_acc": 0.9846,
+   "mean_train_acc": 0.999,
+   "underfit": false
+  }
+ }
+}

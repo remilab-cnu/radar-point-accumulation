@@ -1,0 +1,48 @@
+{
+ "n_instances": 2400,
+ "P": 8,
+ "epochs": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "M1_phase_doppler": {
+  "4": {
+   "prep": -0.573,
+   "ges": -0.061,
+   "retr": 0.494
+  },
+  "1": {
+   "prep": -0.441,
+   "ges": 0.087,
+   "retr": 0.549
+  },
+  "3": {
+   "prep": -0.387,
+   "ges": 0.176,
+   "retr": 0.617
+  },
+  "0": {
+   "prep": -0.492,
+   "ges": -0.14,
+   "retr": 0.246
+  },
+  "2": {
+   "prep": -0.415,
+   "ges": 0.023,
+   "retr": 0.554
+  }
+ },
+ "M2_prep_vs_ges_acc": {
+  "prep": 73.15,
+  "ges": 76.58
+ },
+ "M3_energy_gate_falsetrigger": {
+  "prep": 50.8,
+  "retr": 41.1,
+  "far_idle": 9.3
+ },
+ "M4_anti_directional_pct": 33.1
+}

@@ -1,0 +1,22 @@
+{
+ "A_forward_wrap_mHomeGes_full": {
+  "C_original": 0.84,
+  "C_wrap_at_4.8": 0.84,
+  "C_wrap_at_2.1": 0.79,
+  "C_wrap_at_1.5": 0.758
+ },
+ "B_boundary_mass": {
+  "MM-Fi": {
+   "span": 4.835,
+   "res": 0.604,
+   "frac_points_near_boundary": 0.0002,
+   "frac_mass_near_boundary": 0.0013
+  },
+  "mRI": {
+   "span": 2.136,
+   "res": 0.356,
+   "frac_points_near_boundary": 0.0001,
+   "frac_mass_near_boundary": 0.0004
+  }
+ }
+}

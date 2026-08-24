@@ -1,0 +1,24 @@
+name: srep-gesture-interpolation
+description: "Fit-to-interpolation test for the 8.3 pp claim: full(xyzvAt) vs v-crossshuffle, dropout=0, LR 1e-3/1e-4/1e-5 to ep360, paired seeds, folds 1+2; plus grouped random labels and the exact collision ceiling."
+tags: [srep-gesture, interpolation, underfit-diagnosis, tim-revision]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  # NOTE: the folder moved On-going -> Archive; 38 of 39 older yamls still carry
+  # the stale path and will fail. This one is correct.
+  cd /path/to/this/repo/src
+  python -m pip install -q pandas scipy scikit-learn
+  nvidia-smi || true
+  echo "=== SMOKE (fast path validation: 3 subjects, 1 fold, 1 seed, 40 epochs) ==="
+  SMOKE=1 python -u rep_interpolation.py
+  echo "=== FULL (folds 1+2, seeds 0-2, 2 arms, 360 epochs; then random labels) ==="
+  python -u rep_interpolation.py
+  echo "INTERPOLATION DONE"

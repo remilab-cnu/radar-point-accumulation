@@ -1,0 +1,67 @@
+{
+ "dim_matched(full-vcross)": {
+  "mean_pp": 8.57,
+  "ci_subject": [
+   6.61,
+   10.71
+  ],
+  "ci_two_level": [
+   6.49,
+   10.78
+  ],
+  "n_subjects": 25,
+  "n_seeds": 5
+ },
+ "velocity_contribution(full-novel)": {
+  "mean_pp": 8.68,
+  "ci_subject": [
+   6.63,
+   10.91
+  ],
+  "ci_two_level": [
+   6.51,
+   11.07
+  ],
+  "n_subjects": 25,
+  "n_seeds": 5
+ },
+ "association(full-vin)": {
+  "mean_pp": 3.8,
+  "ci_subject": [
+   2.68,
+   4.92
+  ],
+  "ci_two_level": [
+   2.44,
+   5.28
+  ],
+  "n_subjects": 25,
+  "n_seeds": 5
+ },
+ "distribution(vin-vcross)": {
+  "mean_pp": 4.77,
+  "ci_subject": [
+   3.14,
+   6.41
+  ],
+  "ci_two_level": [
+   2.99,
+   6.66
+  ],
+  "n_subjects": 25,
+  "n_seeds": 5
+ },
+ "dim_control(vcross-novel)": {
+  "mean_pp": 0.11,
+  "ci_subject": [
+   -0.4,
+   0.63
+  ],
+  "ci_two_level": [
+   -0.85,
+   1.08
+  ],
+  "n_subjects": 25,
+  "n_seeds": 5
+ }
+}

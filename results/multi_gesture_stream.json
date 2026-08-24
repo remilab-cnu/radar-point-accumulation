@@ -1,0 +1,35 @@
+{
+ "offline_clip_acc": 74.02,
+ "W": 24,
+ "S": 6,
+ "debounce": {
+  "HI": 0.5,
+  "K": 2,
+  "R": 6
+ },
+ "epochs": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "streaming": {
+  "rest": {
+   "event_P": 71.15,
+   "event_R": 23.33,
+   "event_F1": 34.12,
+   "fp_per_min": 7.11,
+   "onset_latency_s": 0.262,
+   "order_edit_norm": 0.695
+  },
+  "coartic": {
+   "event_P": 81.21,
+   "event_R": 19.78,
+   "event_F1": 31.34,
+   "fp_per_min": 5.05,
+   "onset_latency_s": 0.232,
+   "order_edit_norm": 0.758
+  }
+ }
+}

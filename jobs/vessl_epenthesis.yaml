@@ -1,0 +1,18 @@
+name: srep-gesture-epenthesis-char
+description: "Epenthesis characterization: preparation/retraction Doppler dominates + is class-indiscriminate + energy-gate can't isolate gesture (Infineon, all users)"
+tags: [srep-gesture, segmentation, epenthesis]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u epenthesis_char.py
+  echo "EPENTHESIS CHAR DONE"

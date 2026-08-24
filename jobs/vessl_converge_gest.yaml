@@ -1,0 +1,19 @@
+name: srep-gesture-converge-gest
+description: "Cold-review gate: converge map arms (w32, ep60/120, train-acc logged) + MM-Fi multi-fold + vshuffled count-matched control [gest]"
+tags: [srep-gesture, cold-review-gate, converge]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+  RERUN_PART: "gest"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_converge.py
+  echo "CONVERGE gest DONE"

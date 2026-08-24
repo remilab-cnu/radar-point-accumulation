@@ -1,0 +1,58 @@
+{
+ "ep160": {
+  "dim_matched(full-vcross)": {
+   "mean_pp": 8.73,
+   "ci_subject": [
+    6.64,
+    10.94
+   ],
+   "ci_two_level": [
+    6.56,
+    11.04
+   ],
+   "n_subjects": 25,
+   "n_seeds": 5
+  },
+  "velocity_contribution(full-novel)": {
+   "mean_pp": 8.77,
+   "ci_subject": [
+    6.71,
+    10.86
+   ],
+   "ci_two_level": [
+    6.56,
+    11.1
+   ],
+   "n_subjects": 25,
+   "n_seeds": 5
+  }
+ },
+ "ep200": {
+  "dim_matched(full-vcross)": {
+   "mean_pp": 8.1,
+   "ci_subject": [
+    5.99,
+    10.4
+   ],
+   "ci_two_level": [
+    5.78,
+    10.55
+   ],
+   "n_subjects": 25,
+   "n_seeds": 5
+  },
+  "velocity_contribution(full-novel)": {
+   "mean_pp": 8.12,
+   "ci_subject": [
+    5.99,
+    10.36
+   ],
+   "ci_two_level": [
+    5.82,
+    10.57
+   ],
+   "n_subjects": 25,
+   "n_seeds": 5
+  }
+ }
+}

@@ -1,0 +1,18 @@
+name: srep-gesture-repsweep-round6
+description: "Round 6: FAITHFUL original-paper augmentation - native-time spectrogram + map-domain sliding window (phase shift only, x4/x3 multiplier), degenerate-window filter, DeepSets parity with same windows"
+tags: [srep-gesture, repsweep, round6, faithful-aug]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_round6.py
+  echo "ROUND6 DONE"

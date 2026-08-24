@@ -1,0 +1,143 @@
+{
+ "_purpose": "Fit-to-interpolation test for the 8.3 pp claim (2026-08-11).",
+ "_device": "cuda",
+ "_smoke": false,
+ "_schedule": [
+  [
+   120,
+   0.001
+  ],
+  [
+   120,
+   0.0001
+  ],
+  [
+   120,
+   1e-05
+  ]
+ ],
+ "_folds_used": [
+  1,
+  2
+ ],
+ "_seeds": [
+  0,
+  1,
+  2
+ ],
+ "E1_interpolation": {
+  "fold1|full(xyzvAt)|seed0": {
+   "final_train_acc": 0.99751,
+   "final_train_loss": 0.0083,
+   "final_test_acc": 0.81708,
+   "epochs": 360
+  },
+  "fold1|full(xyzvAt)|seed1": {
+   "final_train_acc": 0.99723,
+   "final_train_loss": 0.00906,
+   "final_test_acc": 0.81634,
+   "epochs": 360
+  },
+  "fold1|full(xyzvAt)|seed2": {
+   "final_train_acc": 0.99729,
+   "final_train_loss": 0.00864,
+   "final_test_acc": 0.81387,
+   "epochs": 360
+  },
+  "fold1|v-crossshuffle|seed0": {
+   "final_train_acc": 0.99956,
+   "final_train_loss": 0.0118,
+   "final_test_acc": 0.77364,
+   "epochs": 360
+  },
+  "fold1|v-crossshuffle|seed1": {
+   "final_train_acc": 0.99579,
+   "final_train_loss": 0.02616,
+   "final_test_acc": 0.76746,
+   "epochs": 360
+  },
+  "fold1|v-crossshuffle|seed2": {
+   "final_train_acc": 0.99369,
+   "final_train_loss": 0.03466,
+   "final_test_acc": 0.76277,
+   "epochs": 360
+  },
+  "fold2|full(xyzvAt)|seed0": {
+   "final_train_acc": 0.99799,
+   "final_train_loss": 0.00647,
+   "final_test_acc": 0.77177,
+   "epochs": 360
+  },
+  "fold2|full(xyzvAt)|seed1": {
+   "final_train_acc": 0.99805,
+   "final_train_loss": 0.00552,
+   "final_test_acc": 0.76076,
+   "epochs": 360
+  },
+  "fold2|full(xyzvAt)|seed2": {
+   "final_train_acc": 0.99825,
+   "final_train_loss": 0.00501,
+   "final_test_acc": 0.77103,
+   "epochs": 360
+  },
+  "fold2|v-crossshuffle|seed0": {
+   "final_train_acc": 0.99961,
+   "final_train_loss": 0.01065,
+   "final_test_acc": 0.59803,
+   "epochs": 360
+  },
+  "fold2|v-crossshuffle|seed1": {
+   "final_train_acc": 0.99805,
+   "final_train_loss": 0.02235,
+   "final_test_acc": 0.60965,
+   "epochs": 360
+  },
+  "fold2|v-crossshuffle|seed2": {
+   "final_train_acc": 0.99662,
+   "final_train_loss": 0.0296,
+   "final_test_acc": 0.61396,
+   "epochs": 360
+  }
+ },
+ "E2_random_labels": {
+  "fold1|full(xyzvAt)|randomlabels": {
+   "final_train_acc": 0.37924,
+   "final_train_loss": 1.77203,
+   "final_test_acc": 0.098,
+   "epochs": 360
+  },
+  "fold1|v-crossshuffle|randomlabels": {
+   "final_train_acc": 0.40101,
+   "final_train_loss": 1.70406,
+   "final_test_acc": 0.10022,
+   "epochs": 360
+  }
+ },
+ "E3_collision_ceiling": {
+  "fold1|full(xyzvAt)": {
+   "ceiling": 1.0,
+   "n_groups": 18057,
+   "n_duplicate_groups": 0,
+   "n_conflicting_groups": 0
+  },
+  "fold1|v-crossshuffle": {
+   "ceiling": 1.0,
+   "n_groups": 18057,
+   "n_duplicate_groups": 0,
+   "n_conflicting_groups": 0
+  },
+  "fold2|full(xyzvAt)": {
+   "ceiling": 1.0,
+   "n_groups": 15391,
+   "n_duplicate_groups": 0,
+   "n_conflicting_groups": 0
+  },
+  "fold2|v-crossshuffle": {
+   "ceiling": 1.0,
+   "n_groups": 15391,
+   "n_duplicate_groups": 0,
+   "n_conflicting_groups": 0
+  }
+ },
+ "_wall_minutes": 51.9
+}

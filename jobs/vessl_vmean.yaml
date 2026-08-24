@@ -1,0 +1,18 @@
+name: srep-gesture-vmean-arm
+description: "Referee W1: count-normalized (mean) velocity map arm — Infineon frozen ep30/40 + mHomeGes converge ep120; resolves the sum-embeds-occupancy asymmetry for map orderings"
+tags: [srep-gesture, referee-revision, vmean]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_vmean.py
+  echo "VMEAN ARM DONE"

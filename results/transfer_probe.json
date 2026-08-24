@@ -1,0 +1,75 @@
+{
+ "protocol": {
+  "width": 32,
+  "src_ep": 120,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "smoke": false,
+  "metric": "target subject-disjoint linear-probe acc %"
+ },
+ "transfer": {
+  "mHomeGes->Infineon|v_sum": {
+   "transfer_acc": 91.58,
+   "transfer_std": 0.38,
+   "within_target_acc": 100.0,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|v_hist4": {
+   "transfer_acc": 88.04,
+   "transfer_std": 1.83,
+   "within_target_acc": 100.0,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|amplitude": {
+   "transfer_acc": 87.36,
+   "transfer_std": 1.1,
+   "within_target_acc": 100.0,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|occupancy": {
+   "transfer_acc": 86.33,
+   "transfer_std": 0.62,
+   "within_target_acc": 100.0,
+   "chance": 20.0
+  },
+  "mHomeGes->Infineon|v_hist4_vshuffled": {
+   "transfer_acc": 87.21,
+   "transfer_std": 0.58,
+   "within_target_acc": 100.0,
+   "chance": 20.0
+  },
+  "Infineon->mHomeGes|v_sum": {
+   "transfer_acc": 54.41,
+   "transfer_std": 0.21,
+   "within_target_acc": 99.95,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|v_hist4": {
+   "transfer_acc": 45.88,
+   "transfer_std": 1.83,
+   "within_target_acc": 99.98,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|amplitude": {
+   "transfer_acc": 37.9,
+   "transfer_std": 1.53,
+   "within_target_acc": 99.96,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|occupancy": {
+   "transfer_acc": 41.98,
+   "transfer_std": 2.3,
+   "within_target_acc": 99.87,
+   "chance": 10.0
+  },
+  "Infineon->mHomeGes|v_hist4_vshuffled": {
+   "transfer_acc": 45.18,
+   "transfer_std": 0.96,
+   "within_target_acc": 99.98,
+   "chance": 10.0
+  }
+ }
+}

@@ -1,0 +1,19 @@
+name: srep-gesture-rerun-mh
+description: "Audit rerun R2/R3: mHomeGes map arms under frozen protocol (no-aug, batch64, seeds 0-2, ep30+40) + validation member selection"
+tags: [srep-gesture, audit-rerun, table3]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+  RERUN_PART: "mh"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_rerun_audit.py
+  echo "RERUN MH DONE"

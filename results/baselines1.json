@@ -1,0 +1,360 @@
+{
+ "manifest": {
+  "infineon_pkl_md5": "7d60af89e571178e5e1d04147d78364b",
+  "n_instances": {
+   "mHomeGes": 22108,
+   "Infineon": 2400,
+   "MM-Fi": 1073
+  }
+ },
+ "datasets": {
+  "mHomeGes": {
+   "n_instances": 22108,
+   "n_cls": 10,
+   "chance": 0.1,
+   "folds": [
+    [
+     "802",
+     "805",
+     "811",
+     "816",
+     "820"
+    ],
+    [
+     "814",
+     "818",
+     "823",
+     "824",
+     "825"
+    ],
+    [
+     "801",
+     "806",
+     "808",
+     "810",
+     "813"
+    ],
+    [
+     "804",
+     "807",
+     "809",
+     "819",
+     "821"
+    ],
+    [
+     "800",
+     "803",
+     "812",
+     "815",
+     "822"
+    ]
+   ],
+   "test_N": [
+    4287,
+    4051,
+    6717,
+    2977,
+    4076
+   ]
+  },
+  "Infineon": {
+   "n_instances": 2400,
+   "n_cls": 5,
+   "chance": 0.2,
+   "folds": [
+    [
+     "u2",
+     "u4",
+     "u9"
+    ],
+    [
+     "u11",
+     "u6",
+     "u8"
+    ],
+    [
+     "u10",
+     "u5",
+     "u7"
+    ],
+    [
+     "u1",
+     "u12",
+     "u3"
+    ]
+   ],
+   "test_N": [
+    600,
+    600,
+    600,
+    600
+   ]
+  },
+  "MM-Fi": {
+   "n_instances": 1073,
+   "n_cls": 27,
+   "chance": 0.037,
+   "folds": [
+    [
+     "S05",
+     "S10",
+     "S15",
+     "S20",
+     "S25",
+     "S30",
+     "S35",
+     "S40"
+    ]
+   ],
+   "test_N": [
+    216
+   ]
+  }
+ },
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "optimizer": "adam",
+  "lr": 0.001,
+  "grad_clip": 5.0,
+  "aug": "none",
+  "input": "common-input full(x,y,z,v,A,t), n_points=384 masked",
+  "lr_policy": "published-default 1e-3 only; 3-point validation-subject LR selection {default,1e-3,3e-4} pending (see module TODO)",
+  "models": {
+   "PointNetPP": "SSG SA(128,r=0.2,32,[64,64,128])->SA(32,r=0.4,64,[128,128,256])->global[256,512]->FC",
+   "DGCNNTemporal": "EdgeConv k=16 [64,64]->[128], static xyz graph, full-feature edges, masked max+mean pool->FC"
+  },
+  "deviations": [
+   "masked FPS/ball-query/kNN (padding excluded)",
+   "compact depth: 2 SA levels / 2 EdgeConv blocks",
+   "DGCNN static xyz graph (no dynamic feature re-kNN)",
+   "LR selection pass not yet run (default-LR arm only)"
+  ]
+ },
+ "results": {
+  "mHomeGes|PointNetPP|full(xyzvAt)|ep30": {
+   "mean": 9.425254550002306,
+   "std": 1.0150319590659296,
+   "accs": [
+    10.71,
+    10.71,
+    10.71,
+    8.57,
+    10.96,
+    8.44,
+    9.02,
+    9.04,
+    9.01,
+    9.94,
+    9.94,
+    9.98,
+    8.19,
+    8.19,
+    7.97
+   ],
+   "min_train_acc": 8.91,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|full(xyzvAt)|ep30": {
+   "mean": 25.33093334018185,
+   "std": 10.107229115130561,
+   "accs": [
+    16.84,
+    24.0,
+    8.89,
+    26.39,
+    33.89,
+    31.08,
+    27.51,
+    17.76,
+    49.29,
+    28.49,
+    30.33,
+    37.35,
+    16.0,
+    17.84,
+    14.3
+   ],
+   "min_train_acc": 11.57,
+   "underfit": true
+  },
+  "mHomeGes|PointNetPP|full(xyzvAt)|ep40": {
+   "mean": 9.272566460810632,
+   "std": 1.0166125171198515,
+   "accs": [
+    10.68,
+    10.68,
+    11.22,
+    8.47,
+    8.52,
+    8.07,
+    9.01,
+    9.01,
+    8.96,
+    9.94,
+    9.94,
+    9.98,
+    8.19,
+    8.19,
+    8.22
+   ],
+   "min_train_acc": 8.59,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|full(xyzvAt)|ep40": {
+   "mean": 25.48399257735639,
+   "std": 8.10529339825503,
+   "accs": [
+    13.41,
+    21.3,
+    36.6,
+    12.81,
+    30.98,
+    35.4,
+    30.04,
+    12.31,
+    26.29,
+    27.31,
+    35.37,
+    30.63,
+    20.88,
+    18.82,
+    30.1
+   ],
+   "min_train_acc": 12.42,
+   "underfit": true
+  },
+  "Infineon|PointNetPP|full(xyzvAt)|ep30": {
+   "mean": 94.43055555555556,
+   "std": 3.1910307847364607,
+   "accs": [
+    86.17,
+    98.33,
+    96.5,
+    93.0,
+    93.17,
+    93.5,
+    95.17,
+    98.0,
+    97.5,
+    93.17,
+    92.67,
+    96.0
+   ],
+   "min_train_acc": 95.94,
+   "underfit": false
+  },
+  "Infineon|DGCNNTemporal|full(xyzvAt)|ep30": {
+   "mean": 92.93055555555556,
+   "std": 4.4744430303780565,
+   "accs": [
+    92.0,
+    94.17,
+    94.83,
+    92.67,
+    93.5,
+    94.17,
+    98.17,
+    98.5,
+    98.0,
+    83.67,
+    85.67,
+    89.83
+   ],
+   "min_train_acc": 99.28,
+   "underfit": false
+  },
+  "Infineon|PointNetPP|full(xyzvAt)|ep40": {
+   "mean": 94.27777777777776,
+   "std": 2.418422095519881,
+   "accs": [
+    95.33,
+    90.67,
+    95.0,
+    93.0,
+    92.33,
+    94.0,
+    97.83,
+    95.83,
+    98.5,
+    92.67,
+    95.5,
+    90.67
+   ],
+   "min_train_acc": 94.17,
+   "underfit": true
+  },
+  "Infineon|DGCNNTemporal|full(xyzvAt)|ep40": {
+   "mean": 94.34722222222223,
+   "std": 3.6269683885247788,
+   "accs": [
+    97.83,
+    97.33,
+    97.67,
+    92.67,
+    89.83,
+    92.67,
+    97.83,
+    97.83,
+    97.5,
+    93.67,
+    89.17,
+    88.17
+   ],
+   "min_train_acc": 99.61,
+   "underfit": false
+  },
+  "MM-Fi|PointNetPP|full(xyzvAt)|ep30": {
+   "mean": 67.28395061728394,
+   "std": 10.667141764682379,
+   "accs": [
+    76.39,
+    73.15,
+    52.31
+   ],
+   "min_train_acc": 85.3,
+   "underfit": true
+  },
+  "MM-Fi|DGCNNTemporal|full(xyzvAt)|ep30": {
+   "mean": 70.98765432098766,
+   "std": 0.9512984572482982,
+   "accs": [
+    72.22,
+    70.83,
+    69.91
+   ],
+   "min_train_acc": 92.18,
+   "underfit": true
+  },
+  "MM-Fi|PointNetPP|full(xyzvAt)|ep40": {
+   "mean": 58.79629629629629,
+   "std": 6.623229547492262,
+   "accs": [
+    59.26,
+    66.67,
+    50.46
+   ],
+   "min_train_acc": 90.08,
+   "underfit": true
+  },
+  "MM-Fi|DGCNNTemporal|full(xyzvAt)|ep40": {
+   "mean": 70.83333333333334,
+   "std": 2.853895371744896,
+   "accs": [
+    74.54,
+    70.37,
+    67.59
+   ],
+   "min_train_acc": 93.82,
+   "underfit": true
+  }
+ }
+}

@@ -1,0 +1,18 @@
+name: srep-gesture-converge-point-ext
+description: "Uniform budget extension ep160/ep200, mHomeGes point ladder, all 6 arms, frozen protocol; gate-gap probe for the 8.3pp upper bound (PI directive 2026-08-17)"
+tags: [srep-gesture, tim-revision, converge-point-ext]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /path/to/this/repo/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_converge_point_ext.py
+  echo "CONVERGE POINT EXT DONE"

@@ -1,0 +1,41 @@
+{
+ "n_instances": 2399,
+ "epochs": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "results": {
+  "gesture": {
+   "acc": 76.45,
+   "std": 11.74
+  },
+  "prep": {
+   "acc": 78.76,
+   "std": 9.9
+  },
+  "retract": {
+   "acc": 72.35,
+   "std": 7.03
+  },
+  "full_env": {
+   "acc": 94.62,
+   "std": 4.18
+  },
+  "fixed_naive": {
+   "acc": 81.47,
+   "std": 7.7
+  },
+  "whole": {
+   "acc": 97.23,
+   "std": 3.8
+  },
+  "far_idle": {
+   "acc": 77.62,
+   "std": 11.24
+  }
+ },
+ "spread_pp": 24.88
+}

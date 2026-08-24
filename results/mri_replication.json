@@ -1,0 +1,155 @@
+{
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "aug": "none",
+  "window": 40,
+  "stride": 20,
+  "classes": [
+   "pose_1",
+   "pose_2",
+   "pose_3",
+   "pose_4",
+   "pose_5",
+   "pose_6",
+   "pose_7",
+   "pose_8",
+   "pose_9",
+   "pose_10"
+  ]
+ },
+ "folds": [
+  [
+   "subject8",
+   "subject10",
+   "subject9",
+   "subject17"
+  ],
+  [
+   "subject19",
+   "subject7",
+   "subject15",
+   "subject3"
+  ],
+  [
+   "subject13",
+   "subject11",
+   "subject14",
+   "subject4"
+  ],
+  [
+   "subject18",
+   "subject16",
+   "subject6",
+   "subject2"
+  ],
+  [
+   "subject12",
+   "subject1",
+   "subject5",
+   "subject20"
+  ]
+ ],
+ "prereg": {
+  "P-map": "geometry/intensity >= velocity",
+  "P-point": "velocity best"
+ },
+ "results": {
+  "map_v_sum|ep30": [
+   80.68028170223748,
+   7.091505686189594
+  ],
+  "map_occupancy|ep30": [
+   77.41882492201083,
+   4.879498699019128
+  ],
+  "map_int_sum|ep30": [
+   74.18457496441808,
+   4.411536908929679
+  ],
+  "DeepSets|occupancy(xyzt)|ep30": [
+   76.47857125483331,
+   4.086214563351529
+  ],
+  "DeepSets|intensity(xyzAt)|ep30": [
+   78.4678653922004,
+   4.40277891725146
+  ],
+  "DeepSets|velocity(xyzvt)|ep30": [
+   75.67972468122512,
+   4.04017881740042
+  ],
+  "DeepSets|full(xyzvAt)|ep30": [
+   78.89410423056358,
+   4.14997449061036
+  ],
+  "GRU|occupancy(xyz)|ep30": [
+   81.24023356225139,
+   3.420738905688403
+  ],
+  "GRU|intensity(xyzA)|ep30": [
+   84.07335374854914,
+   4.278448700017226
+  ],
+  "GRU|velocity(xyzv)|ep30": [
+   82.58035762397103,
+   3.2457571620004138
+  ],
+  "GRU|full(xyzvA)|ep30": [
+   83.12083657422478,
+   3.2795867204452414
+  ],
+  "map_v_sum|ep40": [
+   81.69141424466326,
+   7.849596444579012
+  ],
+  "map_occupancy|ep40": [
+   79.25566806149892,
+   4.660548906828286
+  ],
+  "map_int_sum|ep40": [
+   65.42460571561335,
+   17.1223854693537
+  ],
+  "DeepSets|occupancy(xyzt)|ep40": [
+   78.00323244614508,
+   3.79305115981161
+  ],
+  "DeepSets|intensity(xyzAt)|ep40": [
+   80.10759381030365,
+   3.7714212382863566
+  ],
+  "DeepSets|velocity(xyzvt)|ep40": [
+   76.55384548448772,
+   3.6890594921303212
+  ],
+  "DeepSets|full(xyzvAt)|ep40": [
+   79.32413430654901,
+   3.8686207396723216
+  ],
+  "GRU|occupancy(xyz)|ep40": [
+   82.41363438154131,
+   3.529032935077483
+  ],
+  "GRU|intensity(xyzA)|ep40": [
+   84.563709116104,
+   3.433200127846212
+  ],
+  "GRU|velocity(xyzv)|ep40": [
+   83.58088352294666,
+   3.163732682127729
+  ],
+  "GRU|full(xyzvA)|ep40": [
+   84.29290498831755,
+   3.358964842722888
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "map_ref": {
+  "mHomeGes": {
+   "velocity": 67.49,
+   "occupancy": 54.38,
+   "intensity": 44.6
+  },
+  "Infineon": {
+   "velocity": 86.35,
+   "occupancy": 84.3,
+   "intensity": 89.81
+  },
+  "MM-Fi": {
+   "velocity": 70.37,
+   "occupancy": 77.47,
+   "intensity": 77.01
+  }
+ },
+ "pointset": {
+  "mHomeGes": {
+   "DeepSets full(xyzvAt)": 79.8694293552817,
+   "DeepSets no-velocity": 68.20240353208106,
+   "DeepSets xyz-t only": 63.53997264209269,
+   "FramePointGRU full(xyzvA)": 10.53118590832469,
+   "FramePointGRU no-velocity": 10.53118590832469
+  },
+  "Infineon": {
+   "DeepSets full(xyzvAt)": 92.18055555555554,
+   "DeepSets no-velocity": 90.66666666666667,
+   "DeepSets xyz-t only": 89.40277777777777,
+   "FramePointGRU full(xyzvA)": 20.000000000000004,
+   "FramePointGRU no-velocity": 20.000000000000004
+  },
+  "MM-Fi": {
+   "DeepSets full(xyzvAt)": 52.93209876543209,
+   "DeepSets no-velocity": 42.592592592592595,
+   "DeepSets xyz-t only": 42.901234567901234,
+   "FramePointGRU full(xyzvA)": 3.7037037037037033,
+   "FramePointGRU no-velocity": 3.7037037037037033
+  }
+ }
+}

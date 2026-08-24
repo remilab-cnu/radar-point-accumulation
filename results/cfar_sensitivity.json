@@ -1,0 +1,682 @@
+{
+ "purpose": "CFAR operating-point sensitivity (referee R1, 2026-07-18)",
+ "baseline_note": "ca/alpha=2.5 = frozen infineon_recs.pkl; its results are in final_infineon.json (maps, DeepSets_full) and p1_crossparadigm.json (DeepSets intensity(xyzAt)); not recomputed",
+ "detector_common": {
+  "train": 9,
+  "guard": 3,
+  "window": "+-6 frames",
+  "min_points": 8,
+  "cap_per_class_per_user": 40
+ },
+ "variants": {
+  "ca_a2.0": {
+   "method": "ca",
+   "alpha": 2.0
+  },
+  "ca_a3.5": {
+   "method": "ca",
+   "alpha": 3.5
+  },
+  "os_a2.5": {
+   "method": "os",
+   "alpha": 2.5
+  }
+ },
+ "build_stats": {
+  "ca_a2.0": {
+   "n_instances": 2400,
+   "points_per_instance_mean": 531.7,
+   "points_per_frame_mean": 25.74,
+   "class_counts": {
+    "0": 480,
+    "1": 480,
+    "2": 480,
+    "3": 480,
+    "4": 480
+   }
+  },
+  "ca_a3.5": {
+   "n_instances": 2400,
+   "points_per_instance_mean": 250.3,
+   "points_per_frame_mean": 12.13,
+   "class_counts": {
+    "0": 480,
+    "1": 480,
+    "2": 480,
+    "3": 480,
+    "4": 480
+   }
+  },
+  "os_a2.5": {
+   "n_instances": 2400,
+   "points_per_instance_mean": 344.3,
+   "points_per_frame_mean": 16.68,
+   "class_counts": {
+    "0": 480,
+    "1": 480,
+    "2": 480,
+    "3": 480,
+    "4": 480
+   }
+  }
+ },
+ "protocol": {
+  "epochs": [
+   30,
+   40
+  ],
+  "batch": 64,
+  "width": 16,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "aug": "none",
+  "uf_gate": 0.95,
+  "folds": "kfold(subj,4) seed=0",
+  "smoke": false
+ },
+ "results": {
+  "ca_a2.0|map_v_sum|ep30": {
+   "acc": 89.65,
+   "std": 4.74,
+   "accs": [
+    91.33,
+    98.67,
+    94.0,
+    92.67,
+    91.67,
+    92.17,
+    81.0,
+    86.0,
+    91.17,
+    84.33,
+    84.5,
+    88.33
+   ],
+   "min_train_acc": 0.9544,
+   "underfit": false
+  },
+  "ca_a2.0|REF_int_mean|ep30": {
+   "acc": 83.44,
+   "std": 6.88,
+   "accs": [
+    88.83,
+    92.17,
+    89.67,
+    91.17,
+    80.33,
+    74.67,
+    83.33,
+    90.67,
+    76.83,
+    80.17,
+    83.17,
+    70.33
+   ],
+   "min_train_acc": 0.8667,
+   "underfit": true
+  },
+  "ca_a2.0|REF_occupancy|ep30": {
+   "acc": 85.57,
+   "std": 16.03,
+   "accs": [
+    94.67,
+    92.83,
+    90.17,
+    91.67,
+    90.83,
+    35.83,
+    95.17,
+    95.83,
+    91.5,
+    89.33,
+    85.33,
+    73.67
+   ],
+   "min_train_acc": 0.3844,
+   "underfit": true
+  },
+  "ca_a2.0|DeepSets_full(xyzvAt)|ep30": {
+   "acc": 92.17,
+   "std": 5.05,
+   "accs": [
+    97.67,
+    94.33,
+    98.17,
+    94.33,
+    92.33,
+    97.5,
+    94.0,
+    89.83,
+    94.83,
+    85.0,
+    84.67,
+    83.33
+   ],
+   "min_train_acc": 0.98,
+   "underfit": false
+  },
+  "ca_a2.0|DeepSets_intensity(xyzAt)|ep30": {
+   "acc": 90.46,
+   "std": 4.85,
+   "accs": [
+    96.67,
+    93.17,
+    94.0,
+    90.17,
+    90.67,
+    87.5,
+    92.33,
+    96.17,
+    95.0,
+    84.5,
+    81.83,
+    83.5
+   ],
+   "min_train_acc": 0.9767,
+   "underfit": false
+  },
+  "ca_a2.0|map_v_sum|ep40": {
+   "acc": 90.75,
+   "std": 5.79,
+   "accs": [
+    97.67,
+    93.5,
+    91.0,
+    95.5,
+    93.0,
+    93.83,
+    94.67,
+    91.17,
+    93.83,
+    85.83,
+    77.5,
+    81.5
+   ],
+   "min_train_acc": 0.9672,
+   "underfit": false
+  },
+  "ca_a2.0|REF_int_mean|ep40": {
+   "acc": 84.5,
+   "std": 8.58,
+   "accs": [
+    75.33,
+    89.67,
+    95.0,
+    94.67,
+    88.5,
+    83.5,
+    83.0,
+    64.83,
+    94.83,
+    84.5,
+    78.17,
+    82.0
+   ],
+   "min_train_acc": 0.77,
+   "underfit": true
+  },
+  "ca_a2.0|REF_occupancy|ep40": {
+   "acc": 91.24,
+   "std": 4.37,
+   "accs": [
+    94.83,
+    94.83,
+    86.0,
+    93.0,
+    89.83,
+    89.17,
+    95.5,
+    95.33,
+    95.67,
+    92.0,
+    81.5,
+    87.17
+   ],
+   "min_train_acc": 0.9961,
+   "underfit": false
+  },
+  "ca_a2.0|DeepSets_full(xyzvAt)|ep40": {
+   "acc": 92.42,
+   "std": 4.73,
+   "accs": [
+    98.17,
+    95.17,
+    95.17,
+    91.0,
+    94.17,
+    95.83,
+    96.33,
+    93.17,
+    94.67,
+    84.0,
+    82.5,
+    88.83
+   ],
+   "min_train_acc": 0.9894,
+   "underfit": false
+  },
+  "ca_a2.0|DeepSets_intensity(xyzAt)|ep40": {
+   "acc": 91.33,
+   "std": 4.8,
+   "accs": [
+    95.5,
+    95.83,
+    95.17,
+    89.17,
+    91.83,
+    89.17,
+    96.17,
+    96.5,
+    94.17,
+    84.83,
+    82.83,
+    84.83
+   ],
+   "min_train_acc": 0.985,
+   "underfit": false
+  },
+  "ca_a3.5|map_v_sum|ep30": {
+   "acc": 93.53,
+   "std": 3.48,
+   "accs": [
+    88.33,
+    94.83,
+    96.83,
+    97.33,
+    97.5,
+    97.0,
+    92.5,
+    95.67,
+    94.17,
+    88.5,
+    88.33,
+    91.33
+   ],
+   "min_train_acc": 0.9744,
+   "underfit": false
+  },
+  "ca_a3.5|REF_int_mean|ep30": {
+   "acc": 85.24,
+   "std": 7.37,
+   "accs": [
+    88.33,
+    94.67,
+    87.17,
+    90.83,
+    88.33,
+    88.17,
+    92.33,
+    86.0,
+    81.5,
+    81.33,
+    66.0,
+    78.17
+   ],
+   "min_train_acc": 0.915,
+   "underfit": true
+  },
+  "ca_a3.5|REF_occupancy|ep30": {
+   "acc": 82.1,
+   "std": 12.33,
+   "accs": [
+    50.67,
+    91.5,
+    71.17,
+    88.83,
+    90.5,
+    70.83,
+    89.67,
+    94.83,
+    93.17,
+    80.17,
+    86.33,
+    77.5
+   ],
+   "min_train_acc": 0.5978,
+   "underfit": true
+  },
+  "ca_a3.5|DeepSets_full(xyzvAt)|ep30": {
+   "acc": 92.22,
+   "std": 5.17,
+   "accs": [
+    98.0,
+    95.17,
+    94.5,
+    93.67,
+    93.67,
+    93.67,
+    96.0,
+    96.17,
+    95.0,
+    85.17,
+    84.17,
+    81.5
+   ],
+   "min_train_acc": 0.9928,
+   "underfit": false
+  },
+  "ca_a3.5|DeepSets_intensity(xyzAt)|ep30": {
+   "acc": 91.24,
+   "std": 5.41,
+   "accs": [
+    94.67,
+    91.0,
+    93.33,
+    93.5,
+    94.5,
+    94.83,
+    93.17,
+    96.67,
+    96.5,
+    82.5,
+    83.0,
+    81.17
+   ],
+   "min_train_acc": 0.9878,
+   "underfit": false
+  },
+  "ca_a3.5|map_v_sum|ep40": {
+   "acc": 92.97,
+   "std": 5.75,
+   "accs": [
+    93.0,
+    96.83,
+    96.17,
+    97.5,
+    96.17,
+    96.17,
+    95.0,
+    94.67,
+    95.67,
+    89.67,
+    76.0,
+    88.83
+   ],
+   "min_train_acc": 0.9261,
+   "underfit": true
+  },
+  "ca_a3.5|REF_int_mean|ep40": {
+   "acc": 86.93,
+   "std": 7.5,
+   "accs": [
+    87.5,
+    83.33,
+    96.17,
+    91.33,
+    89.83,
+    90.67,
+    93.33,
+    79.5,
+    95.83,
+    82.67,
+    68.67,
+    84.33
+   ],
+   "min_train_acc": 0.8833,
+   "underfit": true
+  },
+  "ca_a3.5|REF_occupancy|ep40": {
+   "acc": 89.97,
+   "std": 4.07,
+   "accs": [
+    94.67,
+    89.83,
+    90.0,
+    89.5,
+    88.67,
+    92.67,
+    92.33,
+    93.33,
+    95.17,
+    86.17,
+    79.83,
+    87.5
+   ],
+   "min_train_acc": 0.9939,
+   "underfit": false
+  },
+  "ca_a3.5|DeepSets_full(xyzvAt)|ep40": {
+   "acc": 92.69,
+   "std": 5.53,
+   "accs": [
+    96.83,
+    95.17,
+    98.0,
+    93.83,
+    94.0,
+    93.5,
+    97.17,
+    96.67,
+    96.67,
+    82.33,
+    82.5,
+    85.67
+   ],
+   "min_train_acc": 0.9967,
+   "underfit": false
+  },
+  "ca_a3.5|DeepSets_intensity(xyzAt)|ep40": {
+   "acc": 91.97,
+   "std": 4.82,
+   "accs": [
+    94.5,
+    95.5,
+    92.17,
+    92.33,
+    93.83,
+    96.17,
+    96.0,
+    94.33,
+    96.5,
+    85.83,
+    85.0,
+    81.5
+   ],
+   "min_train_acc": 0.9939,
+   "underfit": false
+  },
+  "os_a2.5|map_v_sum|ep30": {
+   "acc": 93.83,
+   "std": 2.96,
+   "accs": [
+    93.5,
+    96.5,
+    98.33,
+    96.83,
+    96.67,
+    96.5,
+    93.17,
+    92.5,
+    92.67,
+    89.17,
+    90.0,
+    90.17
+   ],
+   "min_train_acc": 0.9967,
+   "underfit": false
+  },
+  "os_a2.5|REF_int_mean|ep30": {
+   "acc": 87.63,
+   "std": 9.85,
+   "accs": [
+    94.33,
+    94.0,
+    90.17,
+    95.33,
+    92.33,
+    94.0,
+    95.17,
+    89.33,
+    89.83,
+    63.0,
+    82.17,
+    71.83
+   ],
+   "min_train_acc": 0.9083,
+   "underfit": true
+  },
+  "os_a2.5|REF_occupancy|ep30": {
+   "acc": 86.25,
+   "std": 10.95,
+   "accs": [
+    96.67,
+    97.0,
+    93.5,
+    78.67,
+    92.0,
+    78.67,
+    93.5,
+    92.5,
+    95.17,
+    68.67,
+    85.5,
+    63.17
+   ],
+   "min_train_acc": 0.7544,
+   "underfit": true
+  },
+  "os_a2.5|DeepSets_full(xyzvAt)|ep30": {
+   "acc": 92.78,
+   "std": 4.29,
+   "accs": [
+    97.33,
+    95.67,
+    94.0,
+    93.5,
+    93.5,
+    93.0,
+    96.33,
+    96.83,
+    95.83,
+    86.17,
+    86.83,
+    84.33
+   ],
+   "min_train_acc": 0.995,
+   "underfit": false
+  },
+  "os_a2.5|DeepSets_intensity(xyzAt)|ep30": {
+   "acc": 91.72,
+   "std": 5.36,
+   "accs": [
+    94.5,
+    93.0,
+    95.5,
+    92.83,
+    94.5,
+    94.83,
+    95.0,
+    96.33,
+    96.33,
+    83.17,
+    82.5,
+    82.17
+   ],
+   "min_train_acc": 0.9894,
+   "underfit": false
+  },
+  "os_a2.5|map_v_sum|ep40": {
+   "acc": 94.39,
+   "std": 3.86,
+   "accs": [
+    96.17,
+    98.67,
+    97.67,
+    97.33,
+    96.33,
+    94.83,
+    95.17,
+    95.83,
+    96.33,
+    90.0,
+    88.5,
+    85.83
+   ],
+   "min_train_acc": 0.9994,
+   "underfit": false
+  },
+  "os_a2.5|REF_int_mean|ep40": {
+   "acc": 86.72,
+   "std": 9.19,
+   "accs": [
+    93.33,
+    64.33,
+    94.67,
+    95.17,
+    94.67,
+    85.67,
+    94.33,
+    84.33,
+    93.67,
+    84.5,
+    78.33,
+    77.67
+   ],
+   "min_train_acc": 0.7783,
+   "underfit": true
+  },
+  "os_a2.5|REF_occupancy|ep40": {
+   "acc": 90.19,
+   "std": 3.36,
+   "accs": [
+    93.83,
+    90.83,
+    87.67,
+    92.0,
+    87.17,
+    86.5,
+    95.83,
+    92.17,
+    95.0,
+    88.33,
+    86.33,
+    86.67
+   ],
+   "min_train_acc": 0.9667,
+   "underfit": false
+  },
+  "os_a2.5|DeepSets_full(xyzvAt)|ep40": {
+   "acc": 92.81,
+   "std": 5.23,
+   "accs": [
+    96.5,
+    97.83,
+    97.5,
+    93.33,
+    93.83,
+    91.83,
+    96.33,
+    97.0,
+    96.5,
+    83.33,
+    83.33,
+    86.33
+   ],
+   "min_train_acc": 0.995,
+   "underfit": false
+  },
+  "os_a2.5|DeepSets_intensity(xyzAt)|ep40": {
+   "acc": 91.67,
+   "std": 5.17,
+   "accs": [
+    91.67,
+    95.67,
+    94.0,
+    91.5,
+    94.67,
+    95.33,
+    96.0,
+    96.5,
+    95.0,
+    83.17,
+    85.5,
+    81.0
+   ],
+   "min_train_acc": 0.9928,
+   "underfit": false
+  }
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "definition": "per-instance C_i = sum_ax |sum_cell v| / sum_ax sum_cell |v|; nb=32, T=40; FULL datasets, no subsampling",
+ "Infineon": {
+  "n_instances": 2400,
+  "C_mean_per_instance": 0.958,
+  "C_pooled": 0.959,
+  "C_fitted_ranges_mean": 0.949,
+  "C_fitted_ranges_pooled": 0.95,
+  "C_std": 0.028,
+  "C_quartiles": [
+   0.944,
+   0.963,
+   0.978
+  ]
+ },
+ "MM-Fi": {
+  "n_instances": 1073,
+  "C_mean_per_instance": 0.488,
+  "C_pooled": 0.439,
+  "C_fitted_ranges_mean": 0.462,
+  "C_fitted_ranges_pooled": 0.42,
+  "C_std": 0.114,
+  "C_quartiles": [
+   0.41,
+   0.471,
+   0.553
+  ]
+ },
+ "mRI": {
+  "n_instances": 968,
+  "C_mean_per_instance": 0.649,
+  "C_pooled": 0.647,
+  "C_fitted_ranges_mean": 0.623,
+  "C_fitted_ranges_pooled": 0.626,
+  "C_std": 0.069,
+  "C_quartiles": [
+   0.596,
+   0.642,
+   0.695
+  ]
+ },
+ "mHomeGes": {
+  "n_instances": 22108,
+  "C_mean_per_instance": 0.84,
+  "C_pooled": 0.725,
+  "C_fitted_ranges_mean": 0.811,
+  "C_fitted_ranges_pooled": 0.702,
+  "C_std": 0.093,
+  "C_quartiles": [
+   0.781,
+   0.842,
+   0.907
+  ]
+ }
+}

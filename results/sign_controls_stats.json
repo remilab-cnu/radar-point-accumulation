@@ -1,0 +1,67 @@
+{
+ "possum-vsum(cancellation removed)": {
+  "mean_pp": 8.42,
+  "ci_subject": [
+   6.62,
+   10.17
+  ],
+  "ci_two_level": [
+   6.19,
+   10.58
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3
+ },
+ "hist4-possum": {
+  "mean_pp": 0.24,
+  "ci_subject": [
+   -1.1,
+   1.61
+  ],
+  "ci_two_level": [
+   -1.68,
+   2.22
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3
+ },
+ "vsum2ch-vsum(width)": {
+  "mean_pp": 1.74,
+  "ci_subject": [
+   -0.02,
+   3.39
+  ],
+  "ci_two_level": [
+   -0.91,
+   4.43
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3
+ },
+ "possum-vsum2ch(net of width)": {
+  "mean_pp": 6.69,
+  "ci_subject": [
+   5.04,
+   8.36
+  ],
+  "ci_two_level": [
+   4.34,
+   8.97
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3
+ },
+ "hist4-vsum(reference)": {
+  "mean_pp": 8.66,
+  "ci_subject": [
+   7.03,
+   10.33
+  ],
+  "ci_two_level": [
+   6.45,
+   11.15
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3
+ }
+}

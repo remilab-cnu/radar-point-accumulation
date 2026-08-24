@@ -1,0 +1,313 @@
+{
+ "purpose": "uniform budget extension ep160/ep200 (PI directive 2026-08-17); same arms/folds/protocol as converge_point.json",
+ "protocol": {
+  "lr": 0.001,
+  "batch": 64,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "uf_gate": 0.95,
+  "aug": "none",
+  "model": "DeepSets",
+  "smoke": false,
+  "budgets": {
+   "mHomeGes": [
+    160,
+    200
+   ]
+  },
+  "folds": "kfold(seed=0) == p1_crossparadigm/converge_point"
+ },
+ "results": {
+  "mHomeGes|full(xyzvAt)|ep160": {
+   "acc": 82.23,
+   "std": 2.53,
+   "accs": [
+    84.63,
+    84.04,
+    85.75,
+    82.35,
+    80.79,
+    83.21,
+    76.75,
+    80.02,
+    78.23,
+    84.25,
+    83.04,
+    85.96,
+    81.28,
+    81.13,
+    82.04
+   ],
+   "min_train_acc": 0.9582,
+   "mean_train_acc": 0.9713,
+   "underfit": false
+  },
+  "mHomeGes|no-velocity(xyzAt)|ep160": {
+   "acc": 74.6,
+   "std": 3.85,
+   "accs": [
+    75.41,
+    73.85,
+    75.18,
+    78.52,
+    77.81,
+    78.52,
+    65.68,
+    67.71,
+    69.96,
+    78.2,
+    76.96,
+    77.96,
+    74.95,
+    73.58,
+    74.75
+   ],
+   "min_train_acc": 0.9384,
+   "mean_train_acc": 0.9501,
+   "underfit": true
+  },
+  "mHomeGes|v-inshuffle|ep160": {
+   "acc": 78.64,
+   "std": 3.44,
+   "accs": [
+    80.22,
+    78.21,
+    80.2,
+    82.82,
+    81.83,
+    81.36,
+    71.76,
+    71.77,
+    73.81,
+    80.28,
+    76.69,
+    81.29,
+    80.13,
+    80.64,
+    78.66
+   ],
+   "min_train_acc": 0.9504,
+   "mean_train_acc": 0.9575,
+   "underfit": false
+  },
+  "mHomeGes|v-crossshuffle|ep160": {
+   "acc": 74.15,
+   "std": 4.07,
+   "accs": [
+    75.53,
+    74.2,
+    74.76,
+    78.15,
+    77.26,
+    77.88,
+    67.57,
+    67.49,
+    64.54,
+    76.69,
+    75.58,
+    76.76,
+    75.29,
+    73.38,
+    77.11
+   ],
+   "min_train_acc": 0.9451,
+   "mean_train_acc": 0.9524,
+   "underfit": true
+  },
+  "mHomeGes|velocity(xyzvt)|ep160": {
+   "acc": 81.67,
+   "std": 3.12,
+   "accs": [
+    85.72,
+    84.53,
+    82.74,
+    81.88,
+    82.15,
+    82.7,
+    76.57,
+    75.52,
+    76.42,
+    84.21,
+    84.21,
+    85.25,
+    80.74,
+    81.13,
+    81.21
+   ],
+   "min_train_acc": 0.9589,
+   "mean_train_acc": 0.9652,
+   "underfit": false
+  },
+  "mHomeGes|occupancy(xyzt)|ep160": {
+   "acc": 71.64,
+   "std": 6.24,
+   "accs": [
+    70.19,
+    71.12,
+    72.17,
+    78.18,
+    78.7,
+    78.25,
+    58.95,
+    60.1,
+    61.59,
+    74.2,
+    75.61,
+    75.85,
+    72.15,
+    73.68,
+    73.9
+   ],
+   "min_train_acc": 0.9279,
+   "mean_train_acc": 0.9422,
+   "underfit": true
+  },
+  "mHomeGes|full(xyzvAt)|ep200": {
+   "acc": 82.44,
+   "std": 2.6,
+   "accs": [
+    85.07,
+    84.88,
+    85.86,
+    82.4,
+    81.98,
+    82.18,
+    77.65,
+    78.8,
+    78.38,
+    85.05,
+    84.41,
+    85.46,
+    81.58,
+    80.57,
+    82.31
+   ],
+   "min_train_acc": 0.9656,
+   "mean_train_acc": 0.9772,
+   "underfit": false
+  },
+  "mHomeGes|no-velocity(xyzAt)|ep200": {
+   "acc": 74.51,
+   "std": 4.1,
+   "accs": [
+    75.74,
+    72.26,
+    73.38,
+    78.97,
+    77.07,
+    77.61,
+    67.5,
+    66.89,
+    67.95,
+    80.08,
+    78.7,
+    76.59,
+    74.09,
+    74.14,
+    76.67
+   ],
+   "min_train_acc": 0.9493,
+   "mean_train_acc": 0.9565,
+   "underfit": true
+  },
+  "mHomeGes|v-inshuffle|ep200": {
+   "acc": 78.23,
+   "std": 4.06,
+   "accs": [
+    79.82,
+    77.68,
+    80.48,
+    82.82,
+    81.24,
+    80.89,
+    69.88,
+    72.74,
+    70.27,
+    82.6,
+    81.63,
+    80.69,
+    77.28,
+    78.43,
+    76.96
+   ],
+   "min_train_acc": 0.9559,
+   "mean_train_acc": 0.9644,
+   "underfit": false
+  },
+  "mHomeGes|v-crossshuffle|ep200": {
+   "acc": 74.64,
+   "std": 4.47,
+   "accs": [
+    76.44,
+    73.29,
+    74.71,
+    79.63,
+    78.28,
+    78.84,
+    66.41,
+    68.24,
+    64.91,
+    79.24,
+    78.07,
+    75.51,
+    75.22,
+    75.0,
+    75.76
+   ],
+   "min_train_acc": 0.9483,
+   "mean_train_acc": 0.9579,
+   "underfit": true
+  },
+  "mHomeGes|velocity(xyzvt)|ep200": {
+   "acc": 81.31,
+   "std": 3.21,
+   "accs": [
+    84.25,
+    84.09,
+    83.14,
+    80.47,
+    80.25,
+    82.6,
+    75.9,
+    76.64,
+    75.94,
+    84.35,
+    84.01,
+    86.63,
+    78.73,
+    81.01,
+    81.65
+   ],
+   "min_train_acc": 0.9626,
+   "mean_train_acc": 0.969,
+   "underfit": false
+  },
+  "mHomeGes|occupancy(xyzt)|ep200": {
+   "acc": 71.81,
+   "std": 5.86,
+   "accs": [
+    71.36,
+    72.47,
+    71.01,
+    78.05,
+    78.67,
+    78.47,
+    63.29,
+    57.97,
+    62.68,
+    75.65,
+    74.1,
+    75.45,
+    73.18,
+    72.6,
+    72.28
+   ],
+   "min_train_acc": 0.9362,
+   "mean_train_acc": 0.9486,
+   "underfit": true
+  }
+ }
+}

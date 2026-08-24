@@ -1,0 +1,34 @@
+{
+ "diagnosis": {
+  "PointNetPP|0.001": "ok",
+  "PointNetPP|0.0003": "ok",
+  "DGCNNTemporal|0.001": "ok",
+  "DGCNNTemporal|0.0003": "ok"
+ },
+ "results": {
+  "mHomeGes|PointNetPP|lr3e-4|ep30": {
+   "mean": 9.636723876898982,
+   "std": 0.938002120099911,
+   "min_train_acc": 0.08877167386790864,
+   "underfit": true
+  },
+  "mHomeGes|PointNetPP|lr3e-4|ep40": {
+   "mean": 9.286985984231965,
+   "std": 0.9381109917137266,
+   "min_train_acc": 0.07193886027579333,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|lr3e-4|ep30": {
+   "mean": 13.731511613366171,
+   "std": 4.472404032034999,
+   "min_train_acc": 0.09444321206743567,
+   "underfit": true
+  },
+  "mHomeGes|DGCNNTemporal|lr3e-4|ep40": {
+   "mean": 16.439518761542693,
+   "std": 5.992056163873307,
+   "min_train_acc": 0.09811301029742303,
+   "underfit": true
+  }
+ }
+}

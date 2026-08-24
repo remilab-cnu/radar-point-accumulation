@@ -1,0 +1,19 @@
+name: srep-gesture-rerun-small
+description: "Audit reruns R1/R3/R5: MM-Fi + mRI + Infineon map arms, frozen protocol, preds+subjIDs+train-acc, validation member selection"
+tags: [srep-gesture, audit-rerun, table3]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+  RERUN_PART: "small"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_rerun_audit.py
+  echo "RERUN SMALL DONE"

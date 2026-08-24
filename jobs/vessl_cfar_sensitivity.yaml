@@ -1,0 +1,18 @@
+name: srep-gesture-cfar-sensitivity
+description: "Referee R1: CFAR operating-point sensitivity on the 60GHz set — rebuild clouds at ca/a2.0, ca/a3.5, os/a2.5 (frozen selection logic, frozen pkl untouched) and run map+point arms at ep30/40; baseline ca/a2.5 reused from final_infineon/p1"
+tags: [srep-gesture, referee-revision, cfar-sensitivity]
+resources:
+  cluster: remilab-c0
+  preset: gpu-rtx4090
+image: nvcr.io/nvidia/pytorch:24.10-py3
+env:
+  PYTHONUNBUFFERED: "1"
+  LANG: "C.UTF-8"
+mount:
+  /root/workspace/: volume://<your-volume>/
+run: |-
+  set -eu
+  cd /root/workspace/bk-workspace/papers/Papers/On-going/SREP-hand-gesture/experiments/src
+  python -m pip install -q pandas scipy scikit-learn
+  python -u rep_cfar_sensitivity.py
+  echo "CFAR SENSITIVITY DONE"

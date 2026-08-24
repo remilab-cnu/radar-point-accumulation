@@ -1,0 +1,63 @@
+{
+ "_definition": "Full-dataset C(nb) grid sweep (provenance gap closed 2026-08-11).\n\nSection V-D of the manuscript quotes MM-Fi C = 0.43 / 0.49 / 0.55 at 16 / 32 / 64\nbins. Those values came from an inline computation that was never archived, so a\nreferee recomputing from the release could not reproduce them: the only stored\nsweep, docs/c_sensitivity_vmax.json, uses a 400-instance cap and reads\n0.436 / 0.498 / 0.560. This script recomputes the sweep on the FULL datasets,\nusing the same per-instance definition as cancel_stat.py / c_recompute_full.py.\nOut: docs/c_grid_full.json",
+ "T": 40,
+ "full_datasets": true,
+ "C_by_nb": {
+  "MM-Fi": {
+   "16": [
+    0.4288,
+    1073
+   ],
+   "32": [
+    0.4882,
+    1073
+   ],
+   "64": [
+    0.5507,
+    1073
+   ]
+  },
+  "mRI": {
+   "16": [
+    0.5971,
+    968
+   ],
+   "32": [
+    0.6488,
+    968
+   ],
+   "64": [
+    0.6962,
+    968
+   ]
+  },
+  "mHomeGes": {
+   "16": [
+    0.8111,
+    22108
+   ],
+   "32": [
+    0.84,
+    22108
+   ],
+   "64": [
+    0.8651,
+    22108
+   ]
+  },
+  "BGT60TR13C": {
+   "16": [
+    0.9421,
+    2400
+   ],
+   "32": [
+    0.9576,
+    2400
+   ],
+   "64": [
+    0.9704,
+    2400
+   ]
+  }
+ }
+}

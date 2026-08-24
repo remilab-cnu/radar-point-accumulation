@@ -1,0 +1,91 @@
+{
+ "purpose": "E3 major-revision: complete map-domain sign-histogram ladder on MM-Fi (2026-08-18)",
+ "protocol": {
+  "lr": 0.001,
+  "batch": 64,
+  "width": 32,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "budget": 120,
+  "nb": 32,
+  "edges4": [
+   -99,
+   -0.6,
+   0,
+   0.6,
+   99
+  ],
+  "edges2": [
+   -99,
+   0,
+   99
+  ],
+  "edges8": [
+   -99,
+   -1.2,
+   -0.6,
+   -0.2,
+   0,
+   0.2,
+   0.6,
+   1.2,
+   99
+  ],
+  "folds": "kfold(seed=0) 5-fold",
+  "smoke": false
+ },
+ "results": {
+  "MM-Fi|v_sum|ep120": {
+   "acc": 80.11,
+   "std": 2.49,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4|ep120": {
+   "acc": 89.22,
+   "std": 2.03,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4_vshuffled|ep120": {
+   "acc": 84.78,
+   "std": 2.37,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4_vcross|ep120": {
+   "acc": 83.02,
+   "std": 7.61,
+   "min_train_acc": 0.6768,
+   "mean_train_acc": 0.9785,
+   "underfit": true
+  },
+  "MM-Fi|cnt4rand|ep120": {
+   "acc": 80.67,
+   "std": 15.02,
+   "min_train_acc": 0.3539,
+   "mean_train_acc": 0.9398,
+   "underfit": true
+  },
+  "MM-Fi|v_hist2|ep120": {
+   "acc": 89.1,
+   "std": 3.32,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist8|ep120": {
+   "acc": 91.42,
+   "std": 2.16,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  }
+ }
+}
