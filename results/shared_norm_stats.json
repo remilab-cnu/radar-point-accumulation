@@ -1,0 +1,15 @@
+{
+ "signsplit_shared-v_sum_flip0": {
+  "mean_pp": 8.9,
+  "ci_subject": [
+   7.34,
+   10.51
+  ],
+  "ci_two_level": [
+   6.9,
+   10.94
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3
+ }
+}

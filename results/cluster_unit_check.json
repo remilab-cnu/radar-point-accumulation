@@ -1,0 +1,18 @@
+{
+ "dim_matched(full-vcross)|mHomeGes|ep300": {
+  "mean_pp": 8.57,
+  "ci_subject": [
+   6.61,
+   10.71
+  ],
+  "ci_fold": [
+   6.99,
+   10.15
+  ],
+  "n_subjects": 25,
+  "n_folds": 5,
+  "n_seeds": 5,
+  "B": 5000
+ },
+ "_note": "cluster-unit sensitivity for Sec. III-C; subject vs fold resampling"
+}

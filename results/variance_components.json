@@ -1,0 +1,29 @@
+{
+ "primary|mHomeGes|ep300|full-vcross": {
+  "mean_pp": 8.57,
+  "n_subjects": 25,
+  "n_seeds": 5,
+  "sd_subject_pp": 5.3,
+  "sd_seed_pp": 0.47,
+  "sd_residual_cell_pp": 2.85,
+  "share_of_var_of_mean_pct": {
+   "subject": 91,
+   "seed": 4,
+   "residual": 5
+  }
+ },
+ "earlier|mHomeGes|ep120|full-vcross": {
+  "mean_pp": 8.44,
+  "n_subjects": 25,
+  "n_seeds": 5,
+  "sd_subject_pp": 5.72,
+  "sd_seed_pp": 1.01,
+  "sd_residual_cell_pp": 2.75,
+  "share_of_var_of_mean_pct": {
+   "subject": 83,
+   "seed": 13,
+   "residual": 4
+  }
+ },
+ "_note": "components are SDs of the additive decomposition's marginal means; the ep120 entry is the earlier primary, kept for comparison"
+}

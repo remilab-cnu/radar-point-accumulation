@@ -20,9 +20,39 @@ predictions alone, without datasets or GPUs (numpy only, fixed seeds,
 bit-reproducible):
 
 ```bash
-python3 src/foldwise_stats.py    # point-domain ladder (fold-wise pipeline)
-python3 src/foldwise_stats2.py   # map factorial + sign-histogram ladder
+ln -s results docs                  # the scripts read and write ../docs
+python3 src/foldwise_stats.py       # point-domain ladder (fold-wise pipeline)
+python3 src/foldwise_stats2.py      # map factorial + sign-histogram ladder
+python3 src/variance_components.py  # Sec. III-C variance decomposition
+python3 src/cluster_unit_check.py   # Sec. III-C resampling-unit check
+python3 src/c_grid_stats.py         # Sec. V-B grid sweep of the coherence index C
 ```
+
+The statistics scripts are the files that were run for the paper, unedited,
+and they resolve their inputs and outputs as `docs/` beside `src/`; the
+symbolic link above points that name at `results/`.
+
+`src/variance_components.py` writes `results/variance_components.json`, the
+Section III-C decomposition of the primary contrast into subject, seed, and
+residual standard deviations (5.3, 0.5, and 2.9 pp) and the 91 / 4 / 5 %
+shares of the variance of the mean; its `ep120` entry is the earlier round,
+kept for comparison. `src/cluster_unit_check.py` writes
+`results/cluster_unit_check.json`, the Section III-C check that resampling
+subjects rather than folds leaves the interval essentially unchanged. Those
+two are the ep300 scripts; `figures/variance_components.py` is the older
+ep120 script behind the earlier figure and is kept as it was.
+
+`src/c_grid_stats.py` reads `results/c_grid_sweep.json` and
+`results/c_grid_sweep_preds.npz` and writes `results/c_grid_stats.json`, the
+Section V-B sweep of the coherence index C over 16, 32, and 64 map bins;
+`src/rep_c_grid_sweep.py` is the training run that produced those two files.
+`src/rep_shared_norm_sweep.py` produced `results/shared_norm_sweep.json` and
+`results/shared_norm_sweep_preds.npz` for the signed-pair-sum arm under shared
+normalization (Table IV, row B2, summarized in
+`results/shared_norm_stats.json`), together with the within-dataset C sweep
+reported in the supplement's sweep section.
+`jobs/vessl_shared_norm_sweep.yaml` is that run's job specification; no job
+file was archived for the C-grid sweep.
 
 Retraining from scratch needs the four public datasets; `DATASET_ACQUISITION.md`
 records, per dataset, the exact source, file identifiers, byte sizes, and

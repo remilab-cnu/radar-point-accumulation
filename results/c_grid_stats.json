@@ -1,0 +1,60 @@
+{
+ "hist4-v_sum|nb16": {
+  "mean_pp": 6.94,
+  "ci_subject": [
+   4.21,
+   9.56
+  ],
+  "ci_two_level": [
+   -0.26,
+   11.48
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3,
+  "B": 5000,
+  "C": 0.4,
+  "v_sum_acc": 79.03,
+  "v_sum_min_train": 1.0,
+  "v_hist4_acc": 85.97,
+  "v_hist4_min_train": 0.5944
+ },
+ "hist4-v_sum|nb32": {
+  "mean_pp": 9.05,
+  "ci_subject": [
+   7.32,
+   10.76
+  ],
+  "ci_two_level": [
+   6.93,
+   11.3
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3,
+  "B": 5000,
+  "C": 0.4618,
+  "v_sum_acc": 80.49,
+  "v_sum_min_train": 1.0,
+  "v_hist4_acc": 89.53,
+  "v_hist4_min_train": 1.0
+ },
+ "hist4-v_sum|nb64": {
+  "mean_pp": 10.84,
+  "ci_subject": [
+   8.8,
+   12.99
+  ],
+  "ci_two_level": [
+   8.03,
+   13.64
+  ],
+  "n_subjects": 40,
+  "n_seeds": 3,
+  "B": 5000,
+  "C": 0.5244,
+  "v_sum_acc": 76.66,
+  "v_sum_min_train": 1.0,
+  "v_hist4_acc": 87.54,
+  "v_hist4_min_train": 1.0
+ },
+ "_note": "within-dataset C manipulation via map grid; coarser grid lowers C but also lowers spatial resolution, so across-grid comparison is not a C-only manipulation"
+}

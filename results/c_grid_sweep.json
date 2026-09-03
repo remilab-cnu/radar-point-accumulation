@@ -1,0 +1,89 @@
+{
+ "purpose": "within-dataset C manipulation via map grid (MM-Fi, 2026-08-26)",
+ "protocol": {
+  "lr": 0.001,
+  "batch": 64,
+  "width": 32,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "budget": 120,
+  "grids": [
+   16,
+   32,
+   64
+  ],
+  "T": 40,
+  "edges4": [
+   -99,
+   -0.6,
+   0,
+   0.6,
+   99
+  ],
+  "folds": "kfold(seed=0) 5-fold",
+  "ranges": "fit_ranges per fold",
+  "smoke": false
+ },
+ "C_by_grid": {
+  "16": {
+   "C_mean_per_instance": 0.4,
+   "n_instances": 1073
+  },
+  "32": {
+   "C_mean_per_instance": 0.4618,
+   "n_instances": 1073
+  },
+  "64": {
+   "C_mean_per_instance": 0.5244,
+   "n_instances": 1073
+  }
+ },
+ "results": {
+  "MM-Fi|v_sum|nb16|ep120": {
+   "acc": 79.03,
+   "std": 2.2,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4|nb16|ep120": {
+   "acc": 85.97,
+   "std": 11.01,
+   "min_train_acc": 0.5944,
+   "mean_train_acc": 0.9722,
+   "underfit": true
+  },
+  "MM-Fi|v_sum|nb32|ep120": {
+   "acc": 80.49,
+   "std": 2.3,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4|nb32|ep120": {
+   "acc": 89.53,
+   "std": 2.14,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_sum|nb64|ep120": {
+   "acc": 76.66,
+   "std": 4.77,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  },
+  "MM-Fi|v_hist4|nb64|ep120": {
+   "acc": 87.54,
+   "std": 2.58,
+   "min_train_acc": 1.0,
+   "mean_train_acc": 1.0,
+   "underfit": false
+  }
+ },
+ "caveat": "coarser grid lowers C but also lowers spatial resolution; within-grid paired differences are geometry-matched"
+}
